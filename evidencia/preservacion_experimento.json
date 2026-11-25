@@ -1,0 +1,274 @@
+{
+  "experiment": "MobileNetV2_experimento01",
+  "copied_at_utc": "2026-11-19T04:19:49.908854+00:00",
+  "source_type": "directory",
+  "source_path": "/kaggle/input/notebooks/juanestebanmoradiaz/fase-3-entreno/fase3_mobilenetv2_experimento01",
+  "original_files_preserved": 44,
+  "bytes_unchanged": true,
+  "files": [
+    {
+      "archivo_original": "LEEME.txt",
+      "archivo_conservado": "referencia/LEEME.txt",
+      "bytes": 487,
+      "sha256": "8271a62505e5f25b848efde064580b1a2758849dabb740b05ee8f155385eb3d5"
+    },
+    {
+      "archivo_original": "datos_congelados/asignacion_todos_archivos.csv",
+      "archivo_conservado": "referencia/datos_congelados/asignacion_todos_archivos.csv",
+      "bytes": 1097043,
+      "sha256": "cd87ff648b8eff1e93661aece425f530b8c8df4e1d702632adb1a2960d476ed4"
+    },
+    {
+      "archivo_original": "datos_congelados/claves_ambiguas.csv",
+      "archivo_conservado": "referencia/datos_congelados/claves_ambiguas.csv",
+      "bytes": 66106,
+      "sha256": "769a3a827c06983048e2efdbd03c6194ec8566984481ddf632ce7ba4d4319f34"
+    },
+    {
+      "archivo_original": "datos_congelados/controles_cruces.csv",
+      "archivo_conservado": "referencia/datos_congelados/controles_cruces.csv",
+      "bytes": 1418,
+      "sha256": "cc933fd20e7bcb02143ac0300c31ed2127a4e1354a38bd33543749953787801c"
+    },
+    {
+      "archivo_original": "datos_congelados/decisiones_calidad.csv",
+      "archivo_conservado": "referencia/datos_congelados/decisiones_calidad.csv",
+      "bytes": 74758,
+      "sha256": "c40f81451f1d3c2b72d637be60527494cc5bc05cc0743f89d73df37f172c3728"
+    },
+    {
+      "archivo_original": "datos_congelados/decisiones_pares.csv",
+      "archivo_conservado": "referencia/datos_congelados/decisiones_pares.csv",
+      "bytes": 110946,
+      "sha256": "3e6c1bcced829bc1790c20b4293a275febb891ede91903095df18e933e21d78c"
+    },
+    {
+      "archivo_original": "datos_congelados/exclusiones_cuarentenas.csv",
+      "archivo_conservado": "referencia/datos_congelados/exclusiones_cuarentenas.csv",
+      "bytes": 162858,
+      "sha256": "a6fa7dbeb642946d861abc72b28f987379f1ec0086e7e372462c694e04ce876a"
+    },
+    {
+      "archivo_original": "datos_congelados/flujo_conteos.csv",
+      "archivo_conservado": "referencia/datos_congelados/flujo_conteos.csv",
+      "bytes": 297,
+      "sha256": "7239bec9af175ea130852e371af2840c56de7f29503f9c0a5934babbd58a8031"
+    },
+    {
+      "archivo_original": "datos_congelados/freeze_manifest.json",
+      "archivo_conservado": "referencia/datos_congelados/freeze_manifest.json",
+      "bytes": 4402,
+      "sha256": "d48a4859e636c1e2436143efd78bc643abed94f5ee7d07b068fd92f45dfdd198"
+    },
+    {
+      "archivo_original": "datos_congelados/grupos_desarrollo.csv",
+      "archivo_conservado": "referencia/datos_congelados/grupos_desarrollo.csv",
+      "bytes": 387802,
+      "sha256": "39c34d97fa5d2910d2eeb350ed8c5ecff5a48e1d47520c78675618a3a9e4828e"
+    },
+    {
+      "archivo_original": "datos_congelados/mapa_duplicados.csv",
+      "archivo_conservado": "referencia/datos_congelados/mapa_duplicados.csv",
+      "bytes": 1273615,
+      "sha256": "9d9f98fa3b5610cf76238a79ecd9970e48ac04baa0beb883a5d30b02f4f31ae8"
+    },
+    {
+      "archivo_original": "datos_congelados/politica.json",
+      "archivo_conservado": "referencia/datos_congelados/politica.json",
+      "bytes": 1521,
+      "sha256": "909ede05957b6cf804c2c17ed4b020d27ce36c3cbabb9a75b244f4bdbf81482f"
+    },
+    {
+      "archivo_original": "datos_congelados/resumen_particion.json",
+      "archivo_conservado": "referencia/datos_congelados/resumen_particion.json",
+      "bytes": 733,
+      "sha256": "904e5746f51b34c515f34dbed065c024f1d9642d6cc19dcf08ca3fcb6ad2bd0a"
+    },
+    {
+      "archivo_original": "datos_congelados/test_oficial.csv",
+      "archivo_conservado": "referencia/datos_congelados/test_oficial.csv",
+      "bytes": 146140,
+      "sha256": "9b6a71401ad0f1da4dc82458e178cbc1f350010390f659ff82a1a37a5faaa95c"
+    },
+    {
+      "archivo_original": "datos_congelados/test_unico.csv",
+      "archivo_conservado": "referencia/datos_congelados/test_unico.csv",
+      "bytes": 144706,
+      "sha256": "057a8484f74dde0b0ef8e21fe63ffad6df53a1a137376cac2728f4d3f7c10c42"
+    },
+    {
+      "archivo_original": "datos_congelados/train.csv",
+      "archivo_conservado": "referencia/datos_congelados/train.csv",
+      "bytes": 1167041,
+      "sha256": "822926a9987fd509dff687b21da270b310dd2d0fa7991f0731c9012fcc9fc4fc"
+    },
+    {
+      "archivo_original": "datos_congelados/val.csv",
+      "archivo_conservado": "referencia/datos_congelados/val.csv",
+      "bytes": 290177,
+      "sha256": "1bcc4344ee692772c4b2134e541ab9e8a93c84483d1a1f83bb3ba38853c2e544"
+    },
+    {
+      "archivo_original": "entorno.json",
+      "archivo_conservado": "referencia/entorno.json",
+      "bytes": 312,
+      "sha256": "512ca27e506670abb26e3b36179b2395583b6b1eb73cc983934e3ff459c19259"
+    },
+    {
+      "archivo_original": "evaluacion_test/predictions_test_official.csv",
+      "archivo_conservado": "referencia/evaluacion_test/predictions_test_official.csv",
+      "bytes": 25061,
+      "sha256": "c73d4d9684476bb2e175d3e9e676e7f662b32675f9148f16fdcc0e06a4c17d69"
+    },
+    {
+      "archivo_original": "evaluacion_test/predictions_test_unique_view.csv",
+      "archivo_conservado": "referencia/evaluacion_test/predictions_test_unique_view.csv",
+      "bytes": 24815,
+      "sha256": "3978a630cdda9054d0d9832be190d9bf6d537512cb836f0e42902aa34ab8b4ae"
+    },
+    {
+      "archivo_original": "evaluacion_test/test_evaluation_receipt.json",
+      "archivo_conservado": "referencia/evaluacion_test/test_evaluation_receipt.json",
+      "bytes": 2699,
+      "sha256": "053bd26eef8fe83735b97e165916d6a6d83316d6b572d94d29bd93d313fcdb6c"
+    },
+    {
+      "archivo_original": "evaluacion_test/test_metrics.csv",
+      "archivo_conservado": "referencia/evaluacion_test/test_metrics.csv",
+      "bytes": 1581,
+      "sha256": "2c56339c173a170bc7a2b9da049f3e0eba9ab05f4aec3e93bc94182aa5180ac0"
+    },
+    {
+      "archivo_original": "evaluacion_test/threshold_selection.json",
+      "archivo_conservado": "referencia/evaluacion_test/threshold_selection.json",
+      "bytes": 1453,
+      "sha256": "b82b4852d9b38745260b451755e9275f5ef0eed25133c464c1443d4a87bdb2a1"
+    },
+    {
+      "archivo_original": "fase2B_congelado.zip",
+      "archivo_conservado": "referencia/fase2B_congelado.zip",
+      "bytes": 1454693,
+      "sha256": "c6e95ebfca7bd14388213386d770bdd22ca721f09c9b6f47033a2d18f6e29358"
+    },
+    {
+      "archivo_original": "figuras/01_preprocesamiento.png",
+      "archivo_conservado": "referencia/figuras/01_preprocesamiento.png",
+      "bytes": 792667,
+      "sha256": "36c1e5fb7bdae26e257be099e24f21bbeacb8e6db6439d7e8bee16b9d7f7a56f"
+    },
+    {
+      "archivo_original": "figuras/02_curvas_entrenamiento.png",
+      "archivo_conservado": "referencia/figuras/02_curvas_entrenamiento.png",
+      "bytes": 107455,
+      "sha256": "a6dc94e90403ea2931f4eca90cc516b9f79ae48f0f577bbc5512bfbd35329ce6"
+    },
+    {
+      "archivo_original": "figuras/03_validacion.png",
+      "archivo_conservado": "referencia/figuras/03_validacion.png",
+      "bytes": 105119,
+      "sha256": "9d4613c93154c936aebc344ad514538e9e572ce3523171243ba45224bc1a2671"
+    },
+    {
+      "archivo_original": "figuras/04_test_oficial.png",
+      "archivo_conservado": "referencia/figuras/04_test_oficial.png",
+      "bytes": 108610,
+      "sha256": "26ea152970f8397d521ce921cfb549250d9a2f1e71cacc2488dcc24358118f03"
+    },
+    {
+      "archivo_original": "figuras/05_fiabilidad_test.png",
+      "archivo_conservado": "referencia/figuras/05_fiabilidad_test.png",
+      "bytes": 98480,
+      "sha256": "772563853c16c3443a8cf85aec00ff2a39c941db6ee1eb0a338c541a9850a25d"
+    },
+    {
+      "archivo_original": "global_best.pt",
+      "archivo_conservado": "modelo/global_best.pt",
+      "bytes": 9133195,
+      "sha256": "d12e084de1fcf84c5aa57c5f41e73bf8bc5e07730fd2e3a95c232cbddc799c33"
+    },
+    {
+      "archivo_original": "historial_entrenamiento.csv",
+      "archivo_conservado": "referencia/historial_entrenamiento.csv",
+      "bytes": 2960,
+      "sha256": "4ee8f045f3877abe05ddb36c0a82d204a87c2dbcee8be34c824a258dc0b11994"
+    },
+    {
+      "archivo_original": "history.json",
+      "archivo_conservado": "referencia/history.json",
+      "bytes": 6806,
+      "sha256": "359b118ab2dc5e5181bbe3626f56e2d9f3f7a646ddb96a6a9bbeacf81d4d2d14"
+    },
+    {
+      "archivo_original": "integridad_preentrenamiento.csv",
+      "archivo_conservado": "referencia/integridad_preentrenamiento.csv",
+      "bytes": 985872,
+      "sha256": "959e69ad6ab1c5fec41250406056d455cefcf1f7aba696a714688574e8ba09c3"
+    },
+    {
+      "archivo_original": "integridad_resumen.json",
+      "archivo_conservado": "referencia/integridad_resumen.json",
+      "bytes": 55,
+      "sha256": "bc7622661266cbe4be664af66a3ba45c7e5842659c76b16e146ef642ceb4b570"
+    },
+    {
+      "archivo_original": "intervalos_fiabilidad_test.csv",
+      "archivo_conservado": "referencia/intervalos_fiabilidad_test.csv",
+      "bytes": 444,
+      "sha256": "1c7f2d385b95fe5d84c5e055fb5eaeedb87951e3df9df6129cac1ce0b92e41cb"
+    },
+    {
+      "archivo_original": "metadatos_modelo.json",
+      "archivo_conservado": "modelo/metadatos_modelo.json",
+      "bytes": 2643,
+      "sha256": "30583df0c226d7e158c504b1f6fdf80386bb988eb21a5f4928b6ebedffcd63b9"
+    },
+    {
+      "archivo_original": "metricas_finales.json",
+      "archivo_conservado": "referencia/metricas_finales.json",
+      "bytes": 4670,
+      "sha256": "1e7c3487a14fd53ebab352bdee0d3b6b807670a9d7d0d365bf6c8f0ee286c7d0"
+    },
+    {
+      "archivo_original": "metricas_validacion.csv",
+      "archivo_conservado": "referencia/metricas_validacion.csv",
+      "bytes": 795,
+      "sha256": "13952d95a8505bd7250881387bd10ea736b87b30145398b89e91f7cca919355e"
+    },
+    {
+      "archivo_original": "predicciones_validacion.csv",
+      "archivo_conservado": "referencia/predicciones_validacion.csv",
+      "bytes": 38121,
+      "sha256": "09b398954fd941432fcd312447636ca49e6753ea4a92d10940db643b8b2f64e3"
+    },
+    {
+      "archivo_original": "raices_detectadas.csv",
+      "archivo_conservado": "referencia/raices_detectadas.csv",
+      "bytes": 205,
+      "sha256": "df31253e8d80b957b5f8072b461a39b8cae945bd8cdf8ba22ca89575ec10fc03"
+    },
+    {
+      "archivo_original": "resumen_entrenamiento.md",
+      "archivo_conservado": "referencia/resumen_entrenamiento.md",
+      "bytes": 1048,
+      "sha256": "027e482aa3a36b589fa8eeb10809741423d58ac981b73194738b7fda889529af"
+    },
+    {
+      "archivo_original": "run_configuration.json",
+      "archivo_conservado": "referencia/run_configuration.json",
+      "bytes": 1033,
+      "sha256": "aa3f59fe0d560ff20933b5de4e7ab82071f6f849f2db9dcc5d98f7159b79f30a"
+    },
+    {
+      "archivo_original": "seleccion_umbral_validacion.json",
+      "archivo_conservado": "referencia/seleccion_umbral_validacion.json",
+      "bytes": 1453,
+      "sha256": "b82b4852d9b38745260b451755e9275f5ef0eed25133c464c1443d4a87bdb2a1"
+    },
+    {
+      "archivo_original": "indice_sha256.json",
+      "archivo_conservado": "referencia/indice_sha256.json",
+      "bytes": 4477,
+      "sha256": "4a35d53ba1a59ebf42149d64244f9cbc366b912b4bce9d15d8c6a689cdfe34f7"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+root,expected,matching_size
+/kaggle/input/datasets/paultimothymooney/chest-xray-pneumonia/chest_xray,5370,5370
+/kaggle/input/datasets/paultimothymooney/chest-xray-pneumonia/chest_xray/chest_xray,5370,5370

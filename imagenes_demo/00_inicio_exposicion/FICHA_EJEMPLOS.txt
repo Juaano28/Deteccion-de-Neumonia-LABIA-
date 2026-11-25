@@ -1,0 +1,45 @@
+DOS EJEMPLOS PARA INICIAR LA EXPOSICIÓN
+
+Son copias de imágenes del mismo test oficial de 624 archivos. Se han seleccionado
+dos aciertos históricos para que la explicación inicial resulte sencilla.
+No son dos observaciones nuevas ni una muestra aleatoria del desempeño.
+
+1. 01_NORMAL.jpeg
+   Identificador: f005234
+   Original: test/NORMAL/IM-0003-0001.jpeg
+   Etiqueta del dataset: NORMAL (0).
+   Clasificación histórica: NORMAL; verdadero negativo (TN).
+   Puntaje hacia PNEUMONIA en fase 3: 0,008544330.
+   Puntaje de referencia en CPU de fase 4: 0,008514647.
+   SHA256: 4dbfae8f7a29a9871b5b6e6febc33b2a4d14cbf9b4a0aef37e3db018f92798c3
+
+2. 02_NEUMONIA.jpeg
+   Identificador: f005487
+   Original: test/PNEUMONIA/person108_bacteria_511.jpeg
+   Etiqueta del dataset: PNEUMONIA (1).
+   Clasificación histórica: PNEUMONIA; verdadero positivo (TP).
+   Puntaje hacia PNEUMONIA en fase 3: 0,998498797.
+   Puntaje de referencia en CPU de fase 4: 0,998538971.
+   SHA256: bc5b4787665f5bee1dfe5085343ebbce2bb44871ad905c48e258d912708ce3e3
+
+Regla de decisión conservada
+Umbral: 0,874506533.
+Puntaje >= umbral: PNEUMONIA. Puntaje < umbral: NORMAL.
+El puntaje mostrado mide la salida del modelo hacia PNEUMONIA; no expresa su
+porcentaje de certeza clínica ni una probabilidad diagnóstica calibrada.
+Puede variar ligeramente entre entornos sin modificar la clasificación.
+
+Criterio de selección
+Las etiquetas proceden del dataset. Se eligió un TN y un TP con puntajes alejados
+del umbral y se revisó que las imágenes fueran legibles, con ambos campos
+pulmonares visibles. Esta inspección es técnica: no confirma clínicamente la
+presencia o ausencia de neumonía. Las imágenes se copiaron sin alteración.
+
+Guion breve
+"Primero mostramos dos casos del test con etiqueta conocida. La aplicación usa
+el contenido de la imagen para calcular un puntaje y compararlo con el umbral
+fijado. Estos dos ejemplos permiten explicar el flujo; las métricas globales
+se consultan en Resultados del experimento e incluyen también los errores."
+
+Fuente, licencia y procedencia completa: ../ATRIBUCION_Y_USO.txt y
+../procedencia.json. Inventario de los 624 originales: ../inventario_test.csv.

@@ -1,0 +1,92 @@
+{
+  "protocol_version": "2B.1.0",
+  "dataset_inventory_sha256": "38e66d7f0df778fdf40732d56c99013f7f25b8202e694918fcd139463b5fff0d",
+  "ready_for_training": true,
+  "training_scope": "experimento_academico_binario",
+  "patient_identity_verified": false,
+  "label_mapping": {
+    "NORMAL": 0,
+    "PNEUMONIA": 1
+  },
+  "counts": {
+    "original_images": 5856,
+    "original_development": 5232,
+    "deduplicated_development": 5206,
+    "duplicate_copies_development": 26,
+    "ambiguous_keys": 170,
+    "ambiguous_original_development_files": 457,
+    "quarantined_ambiguous_groups": 170,
+    "quarantined_unique_development_images": 453,
+    "technical_quality_exclusions": 7,
+    "excluded_union": 460,
+    "final_development": 4746,
+    "train": 3796,
+    "val": 950,
+    "test_official": 624,
+    "test_unique_view": 618,
+    "remaining_shared_candidate_keys_with_test": 0,
+    "per_split_class": {
+      "train": {
+        "NORMAL": 1078,
+        "PNEUMONIA": 2718
+      },
+      "val": {
+        "NORMAL": 270,
+        "PNEUMONIA": 680
+      },
+      "test": {
+        "NORMAL": 234,
+        "PNEUMONIA": 390
+      }
+    }
+  },
+  "policy": {
+    "name": "experimento_academico_conservador_v1",
+    "seed": 42,
+    "validation_fraction": 0.2,
+    "split_algorithm": "numpy_group_greedy_v1",
+    "exact_duplicates": "Un representante por componente de bytes/pixeles en desarrollo; originales intactos.",
+    "patient_key_policy": "Cuarentena reversible del grupo completo de desarrollo si cualquiera de sus claves candidatas originales aparece en test. No afirma identidad de pacientes.",
+    "perceptual_policy": "Las decisiones visuales asistidas se registran por caso. Mismas/derivadas o no concluyentes se agrupan en desarrollo; si tocan test se aparta el grupo de desarrollo.",
+    "quality_policy": "Franjas de desarrollo con relacion>3 y altura efectiva<=74 a224, confirmadas en panel: excluir del experimento por encuadre limitado; criterio del proyecto, no norma clinica.",
+    "test_policy": "624 archivos oficiales conservados; 618 contenidos unicos como analisis complementario del mismo test, predefinido antes de entrenar.",
+    "ledger_policy": "asignacion_todos_archivos.csv conserva trazabilidad de todos los originales. En copias exactas descartadas, split_final indica el destino de su representante y no inclusion; status distingue las copias. Entrenar y validar exclusivamente con train.csv y val.csv.",
+    "clinical_independence_verified": false,
+    "decision_author": "Revision tecnica asistida por ChatGPT autorizada por el equipo; no revision clinica.",
+    "preprocessing": {
+      "side": 224,
+      "grayscale": true,
+      "channels": 3,
+      "resize": "BILINEAR",
+      "padding": "centrado,0",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    }
+  },
+  "files": {
+    "asignacion_todos_archivos.csv": "cd87ff648b8eff1e93661aece425f530b8c8df4e1d702632adb1a2960d476ed4",
+    "claves_ambiguas.csv": "769a3a827c06983048e2efdbd03c6194ec8566984481ddf632ce7ba4d4319f34",
+    "controles_cruces.csv": "cc933fd20e7bcb02143ac0300c31ed2127a4e1354a38bd33543749953787801c",
+    "decisiones_calidad.csv": "c40f81451f1d3c2b72d637be60527494cc5bc05cc0743f89d73df37f172c3728",
+    "decisiones_pares.csv": "3e6c1bcced829bc1790c20b4293a275febb891ede91903095df18e933e21d78c",
+    "exclusiones_cuarentenas.csv": "a6fa7dbeb642946d861abc72b28f987379f1ec0086e7e372462c694e04ce876a",
+    "flujo_conteos.csv": "7239bec9af175ea130852e371af2840c56de7f29503f9c0a5934babbd58a8031",
+    "grupos_desarrollo.csv": "39c34d97fa5d2910d2eeb350ed8c5ecff5a48e1d47520c78675618a3a9e4828e",
+    "mapa_duplicados.csv": "9d9f98fa3b5610cf76238a79ecd9970e48ac04baa0beb883a5d30b02f4f31ae8",
+    "politica.json": "909ede05957b6cf804c2c17ed4b020d27ce36c3cbabb9a75b244f4bdbf81482f",
+    "resumen_particion.json": "904e5746f51b34c515f34dbed065c024f1d9642d6cc19dcf08ca3fcb6ad2bd0a",
+    "test_oficial.csv": "9b6a71401ad0f1da4dc82458e178cbc1f350010390f659ff82a1a37a5faaa95c",
+    "test_unico.csv": "057a8484f74dde0b0ef8e21fe63ffad6df53a1a137376cac2728f4d3f7c10c42",
+    "train.csv": "822926a9987fd509dff687b21da270b310dd2d0fa7991f0731c9012fcc9fc4fc",
+    "val.csv": "1bcc4344ee692772c4b2134e541ab9e8a93c84483d1a1f83bb3ba38853c2e544"
+  },
+  "package_fingerprint": "b34c6fd669e98231fdcc8f772503197097b846d36ef9772645f43ce0ba82d8c0"
+}

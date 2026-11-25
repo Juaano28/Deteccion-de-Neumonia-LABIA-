@@ -1,0 +1,29 @@
+{
+  "fecha_utc": "2026-11-22T22:20:44.102762+00:00",
+  "version": "Entrega académica final de la aplicación",
+  "fuente": "Fase4_Streamlit_Revision_Local(1).zip",
+  "sha256_zip_recibido": "f49d96207068156f748bf6d9fb5f493cb189ecec49a4d40bd8126c6b93ce2654",
+  "archivos_originales_comprobados": 99,
+  "archivos_originales_iguales_antes_de_regenerar_indice": 96,
+  "archivos_editados": [
+    "GUIA_INICIO.html",
+    "README.md",
+    "app.py"
+  ],
+  "indice": "indice_fase4_sha256.json se regenera al empaquetar; cubre los archivos de esta nueva versión, excepto el propio índice.",
+  "modelo_sin_cambios": true,
+  "preprocesamiento_sin_cambios": true,
+  "umbral_sin_cambios": 0.8745065331459045,
+  "css_sin_cambios": true,
+  "pruebas_funcionales": "pruebas_funcionales.json",
+  "prueba_16_casos_cpu": "verificacion_entorno_revision.json",
+  "test_incluido": {
+    "n": 624,
+    "normal": 234,
+    "pneumonia": 390,
+    "sha256_coincidentes": 624,
+    "contenidos_distintos": 618
+  },
+  "nuevos_contenidos": "Imágenes del test, ejemplos de exposición, guías de instalación/inicio y registros de esta revisión.",
+  "limites": "La entrega mejora contenido e instalación. No vuelve a entrenar, no ajusta con test, no cambia la paridad histórica ni constituye validación clínica. Pruebas funcionales en Linux/CPU; lanzadores Windows revisados estáticamente."
+}

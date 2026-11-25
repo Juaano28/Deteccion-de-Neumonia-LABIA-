@@ -1,0 +1,58 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Fase 4 · Evidencia de integración</title><style>body{font:16px/1.6 system-ui,sans-serif;color:#173145;background:#f4f7fa;margin:0}
+main{max-width:1100px;margin:auto;padding:36px}h1,h2{line-height:1.2}.card,figure{background:white;padding:24px;border-radius:14px;margin:20px 0}
+img{width:100%;height:auto}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}a{color:#007c83}.label{color:#007c83;font-weight:700}
+@media print{body{background:white}main{padding:0}figure{break-inside:avoid}}</style><main>
+<p class="label">GRUPO 2 · (Juan)⁴ · PROTOTIPO ACADÉMICO</p><h1>Fase 4: inferencia y revisión de errores</h1>
+<section class="card"><h2>PARIDAD_INCOMPLETA</h2><p>La paridad no está completa. Revisa los casos de discrepancia antes de afirmar equivalencia.</p>
+<p>El modelo, las etiquetas, el preprocesamiento y el umbral 0,874506533 se conservan. Esta fase no entrena ni calibra.</p></section>
+<section class="card"><h2>Resultado histórico de fase 3</h2><p>624 imágenes; 568 aciertos; 23 falsos negativos y 33 falsos positivos.
+Sensibilidad 94,10 %, especificidad 85,90 %, exactitud 91,03 % y AUROC 0,9653. Son resultados del mismo test, no validación externa.</p>
+<p><a href="errores_test.csv">Catálogo de los 56 errores</a> · <a href="preservacion_experimento.json">Conservación de archivos originales</a></p></section>
+<section class="card"><h2>Cómo registrar la revisión</h2><p>Abre errores_test.csv. Completa estado_revision_humana, observacion_visual,
+limitacion_o_hipotesis, revisor y fecha_revision. Describe lo observable; una causa clínica requiere valoración experta. No cambies etiquetas,
+particiones, umbral o modelo a partir de esta revisión del test. El catálogo inicial mantiene la revisión humana como pendiente.</p></section>
+<section class="card"><h2>Comprobación de implementación</h2><p>Tensor idéntico al preprocesamiento original; diferencia absoluta de score ≤0,01;
+100 % de clases coincidentes. La tolerancia se fijó antes de comparar, por el cambio de GPU con AMP a CPU FP32; no es una tolerancia clínica.</p>
+<pre>{
+  &quot;purpose&quot;: &quot;implementation_parity_not_new_independent_validation&quot;,
+  &quot;compared_at_utc&quot;: &quot;2026-11-19T04:24:33.537247+00:00&quot;,
+  &quot;device&quot;: &quot;cpu&quot;,
+  &quot;precision&quot;: &quot;float32_without_amp&quot;,
+  &quot;historical_device&quot;: &quot;CUDA Tesla T4 + AMP; lote 64&quot;,
+  &quot;n_expected&quot;: 624,
+  &quot;n_checked&quot;: 624,
+  &quot;new_inference_passes&quot;: 1,
+  &quot;repeated_images_for_determinism&quot;: 8,
+  &quot;score_absolute_tolerance&quot;: 0.01,
+  &quot;required_class_agreement&quot;: 1.0,
+  &quot;required_preprocessing_equality&quot;: &quot;exact&quot;,
+  &quot;score_max_abs_diff&quot;: 0.014778077602386475,
+  &quot;score_median_abs_diff&quot;: 5.005323328079918e-05,
+  &quot;score_p95_abs_diff&quot;: 0.005212342739105225,
+  &quot;score_outside_tolerance&quot;: 5,
+  &quot;class_mismatches&quot;: 0,
+  &quot;preprocessing_mismatches&quot;: 0,
+  &quot;errors&quot;: 0,
+  &quot;repeat_max_abs_diff&quot;: 0.0,
+  &quot;elapsed_seconds&quot;: 29.64445949000003,
+  &quot;median_inference_ms&quot;: 27.160671999979513,
+  &quot;environment&quot;: {
+    &quot;python&quot;: &quot;3.13.18&quot;,
+    &quot;platform&quot;: &quot;Linux-6.18.55+-x86_64-with-glibc2.39&quot;,
+    &quot;torch&quot;: &quot;2.11.0+cpu&quot;,
+    &quot;torchvision&quot;: &quot;0.26.0+cpu&quot;,
+    &quot;pillow&quot;: &quot;13.0.0&quot;,
+    &quot;numpy&quot;: &quot;2.1.3&quot;,
+    &quot;pandas&quot;: &quot;2.3.3&quot;,
+    &quot;cpu_threads&quot;: 2
+  },
+  &quot;model_sha256&quot;: &quot;d12e084de1fcf84c5aa57c5f41e73bf8bc5e07730fd2e3a95c232cbddc799c33&quot;,
+  &quot;threshold_changed&quot;: false,
+  &quot;weights_changed&quot;: false,
+  &quot;historical_metrics_changed&quot;: false,
+  &quot;parity_passed&quot;: false
+}</pre></section><h2>Paneles de errores</h2><p>Imagen original orientada y entrada real de 224 × 224. Las etiquetas y scores son históricos.</p>
+<figure><img src="paneles_errores/FN_01.jpg" alt="FN_01"><figcaption>FN_01.jpg</figcaption></figure><figure><img src="paneles_errores/FN_02.jpg" alt="FN_02"><figcaption>FN_02.jpg</figcaption></figure><figure><img src="paneles_errores/FN_03.jpg" alt="FN_03"><figcaption>FN_03.jpg</figcaption></figure><figure><img src="paneles_errores/FP_01.jpg" alt="FP_01"><figcaption>FP_01.jpg</figcaption></figure><figure><img src="paneles_errores/FP_02.jpg" alt="FP_02"><figcaption>FP_02.jpg</figcaption></figure><figure><img src="paneles_errores/FP_03.jpg" alt="FP_03"><figcaption>FP_03.jpg</figcaption></figure><figure><img src="paneles_errores/FP_04.jpg" alt="FP_04"><figcaption>FP_04.jpg</figcaption></figure><figure><img src="paneles_errores/FP_05.jpg" alt="FP_05"><figcaption>FP_05.jpg</figcaption></figure>
+<section class="card"><h2>Límites del prototipo</h2><p>Los puntajes no están calibrados. No se ha verificado independencia clínica de pacientes ni validación externa.
+Validar un JPEG/PNG no determina que sea una radiografía de tórax. La aplicación no guarda automáticamente las imágenes cargadas.</p></section></main></html>

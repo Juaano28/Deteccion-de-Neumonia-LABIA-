@@ -1,0 +1,46 @@
+IMÁGENES DEL TEST — ATRIBUCIÓN Y USO
+
+Fuente original
+Kermany, Daniel; Zhang, Kang; Goldbaum, Michael (2018).
+Labeled Optical Coherence Tomography (OCT) and Chest X-Ray Images for Classification.
+Mendeley Data, versión 2. DOI: 10.17632/rscbjbr9sj.2.
+https://data.mendeley.com/datasets/rscbjbr9sj/2
+
+Licencia de la fuente: Creative Commons Attribution 4.0 International (CC BY 4.0).
+https://creativecommons.org/licenses/by/4.0/
+Se mantiene la atribución a los autores originales. Su inclusión no supone que los
+autores avalen este proyecto académico ni sus resultados.
+
+Distribución utilizada durante el proyecto:
+Chest X-Ray Images (Pneumonia), publicado por Paul Mooney en Kaggle.
+https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+
+Copia pública empleada para recuperar únicamente las imágenes del test:
+https://huggingface.co/datasets/hf-vision/chest-xray-pneumonia
+Revisión: c1a67c18df1a52ec332ffc00418f4eaa61a9f2bc.
+El detalle de la descarga y sus huellas está en procedencia.json.
+
+Integridad y contenido
+Se incluyen los 624 archivos del test oficial: 234 NORMAL y 390 PNEUMONIA.
+Los 624 SHA256 coinciden con el manifiesto auditado del proyecto. Corresponden
+a 618 contenidos binarios únicos: se retuvieron las copias del test oficial.
+No se recortaron, generaron, redimensionaron, retocaron ni recomprimieron imágenes.
+Los dos archivos de 00_inicio_exposicion son copias con nombres más sencillos;
+sus bytes coinciden con los originales de test. No son dos casos nuevos.
+
+Cómo usar esta carpeta
+1. Para empezar la demostración, carga 00_inicio_exposicion/01_NORMAL.jpeg.
+2. Después carga 00_inicio_exposicion/02_NEUMONIA.jpeg.
+3. Para explorar más ejemplos, usa las carpetas test/NORMAL y test/PNEUMONIA.
+4. Consulta inventario_test.csv para relacionar cada archivo con su etiqueta,
+   predicción histórica, tipo de caso y puntaje. La etiqueta de la carpeta es
+   la referencia del dataset; la aplicación predice a partir de la imagen.
+
+Alcance de la demostración
+Estas son las mismas imágenes que se utilizaron para el test del experimento.
+Los dos ejemplos iniciales se eligieron deliberadamente entre los aciertos para
+explicar la interfaz. No representan por sí solos la calidad general del modelo.
+No son una evaluación externa ni una validación clínica. Los puntajes del modelo
+no son probabilidades clínicas calibradas. Las etiquetas pertenecen al dataset;
+la revisión visual hecha para esta entrega solo comprobó legibilidad técnica.
+La independencia clínica por paciente no está verificada. Uso académico.

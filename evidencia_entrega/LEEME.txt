@@ -1,0 +1,25 @@
+RESPALDO DE LA ENTREGA ACADÉMICA
+
+Los archivos de esta carpeta describen la revisión de la nueva presentación de
+la aplicación. No son una nueva evaluación clínica ni resultados obtenidos en
+el computador del usuario.
+
+- pruebas_funcionales.json: comprobación con Streamlit AppTest, incluyendo carga
+  real de los dos ejemplos, predicción, cambio de imagen, tres pestañas, métricas
+  y conservación de las funciones de inferencia. Entorno Linux y CPU.
+- verificacion_entorno_revision.json: 16 casos portables comprobados en el
+  entorno Linux de revisión. La diferencia máxima de puntaje fue inferior a
+  la tolerancia 0,0001. No sustituye la comprobación de cada computador.
+- preservacion_archivos_recibidos.csv: comparación con los 99 archivos del ZIP
+  recibido antes de regenerar el índice. Solo cambian app.py y las dos guías
+  principales. El índice final se actualiza para incluir los nuevos archivos.
+- resumen_entrega.json: cambios, alcance e integridad del test incorporado.
+
+Los pesos, metadatos, motor, configuración y resultados originales se conservan.
+La carpeta imagenes_demo registra las fuentes y los 624 hashes del test.
+Las dos imágenes iniciales son copias adicionales para facilitar la exposición.
+No se utilizaron para reajustar el modelo.
+
+No se afirma una nueva ejecución en Windows. Los archivos BAT se revisaron
+estáticamente y utilizan las mismas dependencias de la instalación ya probada
+por el usuario. Las comparaciones históricas siguen disponibles en evidencia/.

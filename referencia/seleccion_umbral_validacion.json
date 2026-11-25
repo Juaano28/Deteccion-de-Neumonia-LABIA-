@@ -1,0 +1,42 @@
+{
+  "threshold": 0.8745065331459045,
+  "min_sensitivity_requested": 0.9,
+  "selection_scope": "validation",
+  "rule": "sensibilidad >= objetivo; máxima especificidad; empate: mayor umbral",
+  "validation_metrics_at_selected_threshold": {
+    "n": 950,
+    "threshold": 0.8745065331459045,
+    "tn": 270,
+    "fp": 0,
+    "fn": 68,
+    "tp": 612,
+    "confusion_matrix": [
+      [
+        270,
+        0
+      ],
+      [
+        68,
+        612
+      ]
+    ],
+    "accuracy": 0.9284210526315789,
+    "sensitivity": 0.9,
+    "specificity": 1.0,
+    "precision": 1.0,
+    "f1": 0.9473684210526315,
+    "balanced_accuracy": 0.95,
+    "auroc": 0.9953594771241829,
+    "average_precision": 0.9982435544323222,
+    "brier": 0.028968348423400757,
+    "ece": 0.030071451656158862,
+    "ece_bins": 10,
+    "score_interpretation": "sigmoid sin calibrar; no probabilidad de acertar ni validación clínica"
+  },
+  "interpretation": "Criterio de diseño sobre validación, no garantía en test ni población futura; estimación optimista por selección.",
+  "checkpoint_file_sha256": "d12e084de1fcf84c5aa57c5f41e73bf8bc5e07730fd2e3a95c232cbddc799c33",
+  "frozen_package_sha256": "b34c6fd669e98231fdcc8f772503197097b846d36ef9772645f43ce0ba82d8c0",
+  "config_sha256": "cfbd63bb2139e9c9fb76324dd3d1f84c910b88ffc41596fea6771d05766151f4",
+  "validation_manifest_sha256": "80a3466c735745bfc7cf033371bf9fb46feeb9fe12cb0199cfc4843b2b24d917",
+  "selected_global_epoch": 15
+}

@@ -1,0 +1,169 @@
+{
+  "validation": [
+    {
+      "policy": "fixed_0.5",
+      "n": 950,
+      "threshold": 0.5,
+      "tn": 264,
+      "fp": 6,
+      "fn": 31,
+      "tp": 649,
+      "confusion_matrix": [
+        [
+          264,
+          6
+        ],
+        [
+          31,
+          649
+        ]
+      ],
+      "accuracy": 0.9610526315789474,
+      "sensitivity": 0.9544117647058824,
+      "specificity": 0.9777777777777777,
+      "precision": 0.9908396946564886,
+      "f1": 0.9722846441947566,
+      "balanced_accuracy": 0.9660947712418301,
+      "auroc": 0.9953594771241829,
+      "average_precision": 0.9982435544323222,
+      "brier": 0.028968348423400757,
+      "ece": 0.030071451656158862,
+      "ece_bins": 10,
+      "score_interpretation": "sigmoid sin calibrar; no probabilidad de acertar ni validación clínica"
+    },
+    {
+      "policy": "selected_on_validation",
+      "n": 950,
+      "threshold": 0.8745065331459045,
+      "tn": 270,
+      "fp": 0,
+      "fn": 68,
+      "tp": 612,
+      "confusion_matrix": [
+        [
+          270,
+          0
+        ],
+        [
+          68,
+          612
+        ]
+      ],
+      "accuracy": 0.9284210526315789,
+      "sensitivity": 0.9,
+      "specificity": 1.0,
+      "precision": 1.0,
+      "f1": 0.9473684210526315,
+      "balanced_accuracy": 0.95,
+      "auroc": 0.9953594771241829,
+      "average_precision": 0.9982435544323222,
+      "brier": 0.028968348423400757,
+      "ece": 0.030071451656158862,
+      "ece_bins": 10,
+      "score_interpretation": "sigmoid sin calibrar; no probabilidad de acertar ni validación clínica"
+    }
+  ],
+  "test_official_selected_threshold": {
+    "n": 624,
+    "threshold": 0.8745065331459045,
+    "tn": 201,
+    "fp": 33,
+    "fn": 23,
+    "tp": 367,
+    "confusion_matrix": [
+      [
+        201,
+        33
+      ],
+      [
+        23,
+        367
+      ]
+    ],
+    "accuracy": 0.9102564102564102,
+    "sensitivity": 0.941025641025641,
+    "specificity": 0.8589743589743589,
+    "precision": 0.9175,
+    "f1": 0.9291139240506329,
+    "balanced_accuracy": 0.8999999999999999,
+    "auroc": 0.9652859960552268,
+    "average_precision": 0.9695671418004703,
+    "brier": 0.0887684271584921,
+    "ece": 0.09560130146959614,
+    "ece_bins": 10,
+    "score_interpretation": "sigmoid sin calibrar; no probabilidad de acertar ni validación clínica"
+  },
+  "test_unique_selected_threshold": {
+    "n": 618,
+    "threshold": 0.8745065331459045,
+    "tn": 198,
+    "fp": 33,
+    "fn": 23,
+    "tp": 364,
+    "confusion_matrix": [
+      [
+        198,
+        33
+      ],
+      [
+        23,
+        364
+      ]
+    ],
+    "accuracy": 0.9093851132686084,
+    "sensitivity": 0.9405684754521964,
+    "specificity": 0.8571428571428571,
+    "precision": 0.9168765743073047,
+    "f1": 0.9285714285714286,
+    "balanced_accuracy": 0.8988556662975267,
+    "auroc": 0.964775104309988,
+    "average_precision": 0.9689452246213036,
+    "brier": 0.08897793965904653,
+    "ece": 0.09488838597246704,
+    "ece_bins": 10,
+    "score_interpretation": "sigmoid sin calibrar; no probabilidad de acertar ni validación clínica"
+  },
+  "threshold": {
+    "threshold": 0.8745065331459045,
+    "min_sensitivity_requested": 0.9,
+    "selection_scope": "validation",
+    "rule": "sensibilidad >= objetivo; máxima especificidad; empate: mayor umbral",
+    "validation_metrics_at_selected_threshold": {
+      "n": 950,
+      "threshold": 0.8745065331459045,
+      "tn": 270,
+      "fp": 0,
+      "fn": 68,
+      "tp": 612,
+      "confusion_matrix": [
+        [
+          270,
+          0
+        ],
+        [
+          68,
+          612
+        ]
+      ],
+      "accuracy": 0.9284210526315789,
+      "sensitivity": 0.9,
+      "specificity": 1.0,
+      "precision": 1.0,
+      "f1": 0.9473684210526315,
+      "balanced_accuracy": 0.95,
+      "auroc": 0.9953594771241829,
+      "average_precision": 0.9982435544323222,
+      "brier": 0.028968348423400757,
+      "ece": 0.030071451656158862,
+      "ece_bins": 10,
+      "score_interpretation": "sigmoid sin calibrar; no probabilidad de acertar ni validación clínica"
+    },
+    "interpretation": "Criterio de diseño sobre validación, no garantía en test ni población futura; estimación optimista por selección.",
+    "checkpoint_file_sha256": "d12e084de1fcf84c5aa57c5f41e73bf8bc5e07730fd2e3a95c232cbddc799c33",
+    "frozen_package_sha256": "b34c6fd669e98231fdcc8f772503197097b846d36ef9772645f43ce0ba82d8c0",
+    "config_sha256": "cfbd63bb2139e9c9fb76324dd3d1f84c910b88ffc41596fea6771d05766151f4",
+    "validation_manifest_sha256": "80a3466c735745bfc7cf033371bf9fb46feeb9fe12cb0199cfc4843b2b24d917",
+    "selected_global_epoch": 15
+  },
+  "test_mode": false
+}

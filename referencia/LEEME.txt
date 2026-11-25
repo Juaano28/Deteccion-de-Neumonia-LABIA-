@@ -1,0 +1,5 @@
+global_best.pt contiene model_state, config y la selección. Cargar sólo el checkpoint de este experimento.
+Reconstruir MobileNetV2 con Dropout(0.2)+Linear(1280,1); load_state_dict(..., strict=True); model.eval().
+Conservar el preprocesamiento de metadatos_modelo.json y aplicar sigmoid al logit.
+La clase positiva se obtiene con score >= threshold; el score no está calibrado.
+Para reanudar hacen falta head_last.pt/finetune_last.pt, excluidos del ZIP ligero y conservados en Kaggle.

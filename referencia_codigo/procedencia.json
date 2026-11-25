@@ -1,0 +1,10 @@
+{
+  "notebook_original": "Fase_3_entrenamiento_ejecutada.ipynb",
+  "notebook_sha256": "9341668c203a0e1a550b6ef353c65393e9f963f118ef1b1c98aa381d86be9025",
+  "extracted_definitions": {
+    "default_training_config": "5cbc426509ead4967ddb9d77bfefd74d2447d63aff3e9a19bca68cb7f3d7fcd6",
+    "_config": "6a919cd89104d3a233557a020f6267d1e5949979a5a85d23d21fe6fe57009dff",
+    "CXRTransform": "47214123a4ec2b7a729e0a0e0ad1c5ac142939714fa891ab070411d3c7257450"
+  },
+  "purpose": "paridad técnica con el código original, sin entrenamiento"
+}

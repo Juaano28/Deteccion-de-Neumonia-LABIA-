@@ -1,0 +1,12 @@
+paso,imagenes
+desarrollo_original,5232
+copias_exactas_desarrollo_retiradas,26
+desarrollo_unico,5206
+cuarentena_claves_ambiguas_con_test,453
+exclusion_tecnica_geometria,7
+union_exclusiones_y_cuarentenas,460
+desarrollo_final,4746
+train_final,3796
+val_final,950
+test_oficial,624
+test_vista_unica,618

@@ -1,0 +1,146 @@
+# Fase 4 · Inferencia y aplicación de neumonía
+
+**Grupo 2 · (Juan)⁴ · Prototipo académico de MobileNetV2.**
+
+Este paquete conserva el modelo entrenado en la fase 3 y permite ejecutarlo sobre una imagen mediante una interfaz local en Streamlit. No contiene un entrenamiento nuevo ni una calibración. La evaluación original sigue siendo la referencia.
+
+## Empieza aquí
+
+1. Ejecuta `05_Fase4_Inferencia_Revision_Kaggle.ipynb` en Kaggle con las dos entradas indicadas abajo.
+2. Descarga `fase4_resultados_y_app.zip`, generado por la última celda, y el cuaderno ejecutado.
+3. Extrae ese ZIP y abre la carpeta `neumonia_app` en Visual Studio Code.
+4. Instala el entorno, ejecuta `verificar_instalacion.py` y abre Streamlit.
+
+La guía ilustrada con pasos y comandos está en **GUIA_INICIO.html**. Se abre directamente en el navegador y no necesita conexión.
+
+## A. Comprobación en Kaggle
+
+### Entradas del cuaderno
+
+Añade a **Input**:
+
+- **Chest X-Ray Images (Pneumonia)**, de `paultimothymooney`: las imágenes originales que ya utilizaste.
+- **Los resultados completos de fase 3**, `fase3_mobilenetv2_experimento01_resultados.zip`, como dataset privado o como salida guardada del cuaderno de entrenamiento.
+
+Si Kaggle descomprime el ZIP y muestra `global_best.pt`, `metadatos_modelo.json`, `datos_congelados`, etc., está bien. La carga admite ZIP y carpetas. No hay que introducir una URL. El ZIP de fase 2B por sí solo no contiene el modelo y no reemplaza la salida de fase 3.
+
+**No hace falta añadir este paquete de fase 4 como Input:** el cuaderno incluye sus fuentes comprimidas, sin pesos. Los pesos se recuperan de la fase 3 y se comprueban con SHA-256.
+
+### Ejecución
+
+- Deja CPU / Accelerator None. No requiere GPU ni descarga de ImageNet.
+- Ejecuta las celdas en orden. La lectura y la comparación de 624 imágenes pueden durar varios minutos; reserva orientativamente 3–15 minutos. No es una medición garantizada ni un entrenamiento por horas.
+- La tolerancia absoluta de score es 0,01 para comparar GPU/AMP histórica frente a CPU/FP32. Además se exige tensor idéntico y 100 % de clases coincidentes. No cambies tolerancia ni umbral para aprobar.
+- El cuaderno conserva la versión Pillow 13.0.0 del entrenamiento. Si el entorno cambió, registra el problema en lugar de cambiar silenciosamente la transformación.
+- Puedes usar la ejecución guardada en segundo plano de Kaggle. Este cuaderno tiene menos de 200 KB de fuente y solo muestra una miniatura pequeña; los paneles grandes se guardan como archivos, para evitar el problema anterior de tamaño del notebook.
+
+### Salidas
+
+La última celda crea `/kaggle/working/fase4_<ejecucion>/fase4_resultados_y_app.zip`.
+
+| Archivo o carpeta | Para qué sirve |
+|---|---|
+| `modelo/global_best.pt` y `modelo/metadatos_modelo.json` | Pesos y contrato originales, sin cambios de bytes. |
+| `referencia/` | Resultados, manifiestos y recibo originales de fase 3. |
+| `evidencia/preservacion_experimento.json` | Relación entre archivos originales y conservados, con sus huellas. |
+| `evidencia/errores_test.csv` | Los 23 FN y 33 FP; columnas para revisión humana. |
+| `evidencia/paneles_errores/` | Todos los errores: imagen original y entrada 224 × 224. |
+| `evidencia/comparacion_paridad.csv` | Comparación por imagen entre inferencia histórica y actual. |
+| `evidencia/resumen_paridad.json` | Diferencias máxima/mediana/p95, cambios de clase, entorno y resultado de los criterios. |
+| `evidencia/estado_fase4.json` | Pendiente, paridad aprobada o paridad incompleta. |
+| `evidencia/informe_fase4.html` | Informe legible y paneles. Abre el HTML después de extraer todo el ZIP. |
+| `pruebas_portables/` | 16 imágenes originales seleccionadas para comprobar la instalación local, con los resultados esperados. |
+
+El **paquete inicial entregado en el chat** ya incluye el modelo, la aplicación, los resultados originales y el catálogo de errores. Su estado es `PENDIENTE_KAGGLE`: todavía no contiene paneles de las radiografías ni los 16 casos portables. Esos archivos se generan con tus entradas de Kaggle. No se ha inventado una revisión visual.
+
+## B. Ejecutar en Windows y Visual Studio Code
+
+Usa **Python 3.12 de 64 bits**. Abre en VS Code la carpeta `neumonia_app`, la que contiene `app.py` y `requirements.txt`. Abre una terminal en esa carpeta.
+
+### 1. Crear el entorno
+
+```powershell
+py -3.12 -m venv .venv
+```
+
+### 2. Instalar el motor para CPU
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cpu
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+La primera instalación descarga las bibliotecas y puede tardar según la conexión. La aplicación, una vez instalada, no necesita internet para inferir. No es necesario activar scripts de PowerShell: los comandos llaman directamente al Python del entorno.
+
+### 3. Verificar esta instalación
+
+```powershell
+.\.venv\Scripts\python.exe verificar_instalacion.py
+```
+
+Si aparece `VERIFICACION_LOCAL_APROBADA`, los 16 casos portables coinciden en bytes de imagen, tensor, clase y score dentro de 0,0001 respecto al motor CPU ejecutado en Kaggle. Esta comprobación es una regresión técnica, no otra evaluación clínica. Guarda `evidencia/verificacion_local.json`.
+
+Si aparece `PENDIENTE`, falta ejecutar el cuaderno de fase 4 y descargar su ZIP de salida. Si aparece `VERIFICACION_LOCAL_INCOMPLETA`, conserva el registro y compártelo; no aumentes las tolerancias.
+
+### 4. Abrir la aplicación
+
+```powershell
+.\.venv\Scripts\python.exe -m streamlit run app.py
+```
+
+Abre **http://localhost:8501**. Para cerrarla, pulsa `Ctrl+C` en la terminal. El servidor está configurado para escuchar en `127.0.0.1`, no para publicarse en internet. Tu computador debe permanecer encendido mientras utilizas la página local.
+
+En VS Code puedes seleccionar `.venv` como intérprete con **Python: Select Interpreter**. No necesitas copiar los pesos a otra ubicación: conserva la estructura completa del ZIP.
+
+### Linux o macOS
+
+```bash
+python3.12 -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python verificar_instalacion.py
+.venv/bin/python -m streamlit run app.py
+```
+
+En Linux puedes instalar primero las ruedas CPU con el mismo índice de PyTorch. macOS usa sus ruedas nativas. Las pruebas ejecutadas para esta entrega se realizaron en Linux; la comprobación portable debe ejecutarse también en tu equipo.
+
+## C. Qué muestra la página
+
+- **Analizar imagen:** carga JPEG/PNG, vista original orientada, vista de la entrada 224 × 224 y botón de análisis.
+- **Resultado:** clase predicha, puntaje de neumonía sin calibrar, umbral fijo y tiempo medido. Permite descargar un JSON del resultado.
+- **Resultados del experimento:** métricas y gráficos históricos del test de fase 3, identificados como tales.
+- **Acerca del modelo:** arquitectura, preparación de la imagen, equipo y límites de uso.
+
+La imagen cargada no se guarda automáticamente ni se envía a un servicio externo. El JSON se descarga solo al solicitarlo y no incorpora el nombre del archivo ni la radiografía. El puntaje no se presenta como porcentaje de certeza. Tampoco se afirma que la lectura correcta de un archivo demuestre que es una radiografía.
+
+## D. Revisión humana de los errores
+
+Abre `evidencia/informe_fase4.html` para ver todos los paneles. En una copia de `errores_test.csv`, completa únicamente:
+
+- `estado_revision_humana`: `pendiente` o `revisado`.
+- `observacion_visual`: descripción objetiva de lo que se ve, sin inventar causas.
+- `limitacion_o_hipotesis`: una hipótesis señalada como tal, si corresponde.
+- `revisor` y `fecha_revision`.
+
+No cambies los identificadores, etiquetas o puntajes históricos. Una interpretación de lesiones o un juicio sobre la etiqueta necesita revisión experta. Los errores se documentan como límites de la versión; no se utilizan para reajustar repetidamente el modelo con este test.
+
+## E. Contrato del modelo conservado
+
+MobileNetV2, clasificador Dropout(0,2) + Linear(1280,1), 2.225.153 parámetros. Etiquetas NORMAL=0 y PNEUMONIA=1. La sigmoide transforma el logit en un score; se predice PNEUMONIA si `score >= 0.8745065331459045`.
+
+EXIF → gris → ajuste proporcional bilineal a 224 × 224 con relleno negro → tres canales → float32/255 → normalización ImageNet. No se aplican aumentos de entrenamiento. Los archivos originales se comprueban antes de cargar; no se aceptan pesos aleatorios como sustitución.
+
+El umbral y el checkpoint fueron seleccionados con validación. El test histórico tiene 624 imágenes: 367 TP, 201 TN, 23 FN y 33 FP. La fase 4 no modifica esos resultados ni los presenta como validación externa. La independencia clínica por paciente permanece sin verificar.
+
+## F. Equipo y fuentes
+
+Juan Esteban Lopez Marin · Juan Camilo Giraldo Jiménez · Juan Pablo Ocampo Santana · Juan Esteban Mora Diaz. Grupo 2: (Juan)⁴. Profesora: Isabel Cristina Giraldo Arango. Materia: Laboratorio de Inteligencia Artificial aplicado a la Innovación, la Ingeniería y la gestión empresarial. IA asignada al equipo: Arena; asistencia en esta implementación y comprobaciones: ChatGPT.
+
+- Datos de práctica: https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+- Instalación de Streamlit: https://docs.streamlit.io/get-started/installation/command-line
+- Versiones de PyTorch y ruedas CPU: https://pytorch.org/get-started/previous-versions/
+- Pruebas de aplicaciones Streamlit: https://docs.streamlit.io/develop/api-reference/app-testing/st.testing.v1.apptest
+- Cambio de redimensionamiento en Pillow 13: https://pillow.readthedocs.io/en/stable/releasenotes/13.0.0.html
+
+Las imágenes de prueba portables proceden del test público ya utilizado y se conservan para comprobar este proyecto. Mantén su atribución y consulta los términos del dataset antes de redistribuir el paquete fuera del equipo.

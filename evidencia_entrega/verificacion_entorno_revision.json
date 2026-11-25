@@ -1,0 +1,190 @@
+{
+  "schema_version": "4.1",
+  "status": "VERIFICACION_CPU_LOCAL_APROBADA",
+  "passed": true,
+  "local_cpu_parity_passed": true,
+  "n_cases": 16,
+  "scope": "local_cpu_vs_kaggle_cpu_on_16_portable_cases",
+  "verified_at_utc": "2026-11-22T22:15:02.830632+00:00",
+  "score_absolute_tolerance": 0.0001,
+  "max_abs_score_difference": 1.1920928955078125e-06,
+  "historical_parity_passed": false,
+  "kaggle_parity_passed": false,
+  "full_migration_parity_passed": false,
+  "model_sha256": "d12e084de1fcf84c5aa57c5f41e73bf8bc5e07730fd2e3a95c232cbddc799c33",
+  "metadata_sha256": "30583df0c226d7e158c504b1f6fdf80386bb988eb21a5f4928b6ebedffcd63b9",
+  "portable_descriptor_sha256": "368b6e237718b9a8823d2b4e0db417cf6865291be9713bbc089dfc32e900c713",
+  "threshold": 0.8745065331459045,
+  "interpretation": "passed describe únicamente la regresión CPU local frente a CPU Kaggle sobre 16 casos. La paridad histórica GPU/AMP frente a CPU/FP32 conserva su resultado original; full_migration_parity_passed exige ambas comprobaciones. Ninguna es validación clínica.",
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.6.0+cpu",
+    "torchvision": "0.21.0+cpu",
+    "pillow": "13.0.0",
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "logical_cpu_count": 9,
+    "torch_cpu_threads": 4,
+    "device": "cpu",
+    "precision": "float32_without_amp"
+  },
+  "reference_environment_cpu_kaggle": {
+    "python": "3.13.18",
+    "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu",
+    "pillow": "13.0.0",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "cpu_threads": 2
+  },
+  "cases": [
+    {
+      "file_id": "f005285",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 8.940696716308594e-07,
+      "error": ""
+    },
+    {
+      "file_id": "f005364",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 5.960464477539062e-07,
+      "error": ""
+    },
+    {
+      "file_id": "f005515",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 7.748603820800781e-07,
+      "error": ""
+    },
+    {
+      "file_id": "f005644",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 5.960464477539062e-07,
+      "error": ""
+    },
+    {
+      "file_id": "f005467",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 1.1920928955078125e-06,
+      "error": ""
+    },
+    {
+      "file_id": "f005521",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 8.344650268554688e-07,
+      "error": ""
+    },
+    {
+      "file_id": "f005589",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 5.364418029785156e-07,
+      "error": ""
+    },
+    {
+      "file_id": "f005244",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 2.384185791015625e-07,
+      "error": ""
+    },
+    {
+      "file_id": "f005247",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 1.1920928955078125e-07,
+      "error": ""
+    },
+    {
+      "file_id": "f005249",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 0.0,
+      "error": ""
+    },
+    {
+      "file_id": "f005233",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 1.1622905731201172e-06,
+      "error": ""
+    },
+    {
+      "file_id": "f005234",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 2.8870999813079834e-08,
+      "error": ""
+    },
+    {
+      "file_id": "f005235",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 5.066394805908203e-07,
+      "error": ""
+    },
+    {
+      "file_id": "f005468",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 0.0,
+      "error": ""
+    },
+    {
+      "file_id": "f005469",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 0.0,
+      "error": ""
+    },
+    {
+      "file_id": "f005470",
+      "image_ok": true,
+      "tensor_ok": true,
+      "score_ok": true,
+      "class_ok": true,
+      "abs_score_difference": 0.0,
+      "error": ""
+    }
+  ],
+  "receipt_context": "Prueba en el entorno Linux de revisión de esta entrega; no sustituye la comprobación de cada computador."
+}

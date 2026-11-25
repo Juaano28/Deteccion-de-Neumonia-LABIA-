@@ -1,0 +1,60 @@
+{
+  "complete": true,
+  "signature": "c72c4a6ce467f75155d767f1b34bbbfed6a529d1eb63661ce8fcc4052f1b0a7d",
+  "signature_parts": {
+    "model_sha256": "de983102de3480bb1a3e143f82425777d62f32eba3221f19488e108be7434c27",
+    "test_official_sha256": "0206654295bb8c4c5c9a92d8bcd32bb1100ff0cd1ae93f6f358fe48bab765bb3",
+    "test_unique_sha256": "4bf4718f6df50bf7c5e3cf5a34c509e96dd8a83b82e3aa07f7742c085818ff40",
+    "config_sha256": "cfbd63bb2139e9c9fb76324dd3d1f84c910b88ffc41596fea6771d05766151f4",
+    "frozen_package_sha256": "b34c6fd669e98231fdcc8f772503197097b846d36ef9772645f43ce0ba82d8c0",
+    "threshold_selection": {
+      "threshold": 0.8745065331459045,
+      "min_sensitivity_requested": 0.9,
+      "selection_scope": "validation",
+      "rule": "sensibilidad >= objetivo; máxima especificidad; empate: mayor umbral",
+      "validation_metrics_at_selected_threshold": {
+        "n": 950,
+        "threshold": 0.8745065331459045,
+        "tn": 270,
+        "fp": 0,
+        "fn": 68,
+        "tp": 612,
+        "confusion_matrix": [
+          [
+            270,
+            0
+          ],
+          [
+            68,
+            612
+          ]
+        ],
+        "accuracy": 0.9284210526315789,
+        "sensitivity": 0.9,
+        "specificity": 1.0,
+        "precision": 1.0,
+        "f1": 0.9473684210526315,
+        "balanced_accuracy": 0.95,
+        "auroc": 0.9953594771241829,
+        "average_precision": 0.9982435544323222,
+        "brier": 0.028968348423400757,
+        "ece": 0.030071451656158862,
+        "ece_bins": 10,
+        "score_interpretation": "sigmoid sin calibrar; no probabilidad de acertar ni validación clínica"
+      },
+      "interpretation": "Criterio de diseño sobre validación, no garantía en test ni población futura; estimación optimista por selección.",
+      "checkpoint_file_sha256": "d12e084de1fcf84c5aa57c5f41e73bf8bc5e07730fd2e3a95c232cbddc799c33",
+      "frozen_package_sha256": "b34c6fd669e98231fdcc8f772503197097b846d36ef9772645f43ce0ba82d8c0",
+      "config_sha256": "cfbd63bb2139e9c9fb76324dd3d1f84c910b88ffc41596fea6771d05766151f4",
+      "validation_manifest_sha256": "80a3466c735745bfc7cf033371bf9fb46feeb9fe12cb0199cfc4843b2b24d917",
+      "selected_global_epoch": 15
+    }
+  },
+  "files": {
+    "predictions_test_official.csv": "c73d4d9684476bb2e175d3e9e676e7f662b32675f9148f16fdcc0e06a4c17d69",
+    "predictions_test_unique_view.csv": "3978a630cdda9054d0d9832be190d9bf6d537512cb836f0e42902aa34ab8b4ae",
+    "test_metrics.csv": "2c56339c173a170bc7a2b9da049f3e0eba9ab05f4aec3e93bc94182aa5180ac0",
+    "threshold_selection.json": "b82b4852d9b38745260b451755e9275f5ef0eed25133c464c1443d4a87bdb2a1"
+  },
+  "official_prediction_passes": 1
+}

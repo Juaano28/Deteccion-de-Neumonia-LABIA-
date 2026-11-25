@@ -1,0 +1,13 @@
+left_partition,right_partition,key,n_shared_values,n_left_files,n_right_files,status,note
+train,val,file_id,0,0,0,SIN_COINCIDENCIA,Ausencia de estas coincidencias no acredita independencia por paciente.
+train,val,byte_sha256,0,0,0,SIN_COINCIDENCIA,Ausencia de estas coincidencias no acredita independencia por paciente.
+train,val,pixel_sha256,0,0,0,SIN_COINCIDENCIA,Ausencia de estas coincidencias no acredita independencia por paciente.
+train,val,group_id,0,0,0,SIN_COINCIDENCIA,Ausencia de estas coincidencias no acredita independencia por paciente.
+train,test,file_id,0,0,0,SIN_COINCIDENCIA,Ausencia de estas coincidencias no acredita independencia por paciente.
+train,test,byte_sha256,0,0,0,SIN_COINCIDENCIA,Ausencia de estas coincidencias no acredita independencia por paciente.
+train,test,pixel_sha256,0,0,0,SIN_COINCIDENCIA,Ausencia de estas coincidencias no acredita independencia por paciente.
+train,test,group_id,,,,NO_EVALUABLE,No hay grupos de pacientes verificados para test.
+val,test,file_id,0,0,0,SIN_COINCIDENCIA,Ausencia de estas coincidencias no acredita independencia por paciente.
+val,test,byte_sha256,0,0,0,SIN_COINCIDENCIA,Ausencia de estas coincidencias no acredita independencia por paciente.
+val,test,pixel_sha256,0,0,0,SIN_COINCIDENCIA,Ausencia de estas coincidencias no acredita independencia por paciente.
+val,test,group_id,,,,NO_EVALUABLE,No hay grupos de pacientes verificados para test.

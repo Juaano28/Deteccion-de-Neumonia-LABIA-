@@ -1,0 +1,40 @@
+{
+  "config": {
+    "seed": 42,
+    "weights": "IMAGENET1K_V2",
+    "image_size": 224,
+    "dropout": 0.2,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "num_workers": 2,
+    "rotation_degrees": 5.0,
+    "translation_fraction": 0.02,
+    "head_epochs": 3,
+    "finetune_epochs": 12,
+    "finetune_from": 14,
+    "head_lr": 0.001,
+    "finetune_backbone_lr": 1e-05,
+    "finetune_head_lr": 0.0001,
+    "weight_decay": 0.0001,
+    "patience": 4,
+    "amp": true,
+    "ece_bins": 10,
+    "loss_balance": "per_example_N_over_2Nc",
+    "deterministic_algorithms_warn_only": true
+  },
+  "config_hash": "cfbd63bb2139e9c9fb76324dd3d1f84c910b88ffc41596fea6771d05766151f4",
+  "manifest_hash": "b34c6fd669e98231fdcc8f772503197097b846d36ef9772645f43ce0ba82d8c0",
+  "class_balance": {
+    "counts": {
+      "NORMAL": 1078,
+      "PNEUMONIA": 2718
+    },
+    "weights": {
+      "0": 1.7606679035250463,
+      "1": 0.6983075791022811
+    },
+    "source": "train_only",
+    "sampler": "shuffle_without_replacement"
+  },
+  "test_mode": false
+}

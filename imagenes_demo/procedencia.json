@@ -1,0 +1,90 @@
+{
+  "descripcion": "Copia del test original utilizado en el experimento; no constituye una nueva evaluación independiente.",
+  "creacion_utc": "2026-11-22T22:16:14.293958+00:00",
+  "original": {
+    "titulo": "Labeled Optical Coherence Tomography (OCT) and Chest X-Ray Images for Classification",
+    "autores": [
+      "Daniel Kermany",
+      "Kang Zhang",
+      "Michael Goldbaum"
+    ],
+    "version": 2,
+    "publicacion": "2018-01-06",
+    "doi": "10.17632/rscbjbr9sj.2",
+    "url": "https://data.mendeley.com/datasets/rscbjbr9sj/2",
+    "licencia": "CC BY 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by/4.0/",
+    "distribucion_kaggle": "https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia"
+  },
+  "descarga_utilizada": {
+    "repositorio": "https://huggingface.co/datasets/hf-vision/chest-xray-pneumonia",
+    "commit": "c1a67c18df1a52ec332ffc00418f4eaa61a9f2bc",
+    "url": "https://huggingface.co/datasets/hf-vision/chest-xray-pneumonia/resolve/c1a67c18df1a52ec332ffc00418f4eaa61a9f2bc/data/test-00000-of-00001.parquet",
+    "archivo": "test-00000-of-00001.parquet",
+    "bytes": 78220681,
+    "sha256": "56c173b527abda58ca851a3ecfc094174b5ac9a0181204bcab4f66e999c65cfc",
+    "recuperacion": "Se extrajeron los bytes JPEG embebidos del test y se aceptaron solo los contenidos con SHA256 idéntico al manifiesto auditado del proyecto."
+  },
+  "verificacion": {
+    "manifiesto": "referencia/datos_congelados/test_oficial.csv",
+    "manifiesto_sha256": "9b6a71401ad0f1da4dc82458e178cbc1f350010390f659ff82a1a37a5faaa95c",
+    "inventario": "imagenes_demo/inventario_test.csv",
+    "archivos_test": 624,
+    "contenidos_byte_sha256_distintos": 618,
+    "normal": 234,
+    "pneumonia": 390,
+    "bytes_jpeg_test": 79054751,
+    "sha256_coincidentes": 624,
+    "formatos_y_dimensiones_comprobados": 624,
+    "transformaciones_imagen": "Ninguna. Se conservan los bytes, la resolución, el contraste y los archivos duplicados que pertenecen al test oficial."
+  },
+  "seleccion_exposicion": {
+    "criterio": "Un verdadero negativo y un verdadero positivo según las etiquetas del dataset y las predicciones históricas, con imagen legible y puntaje alejado del umbral. Selección intencional para ilustrar el funcionamiento; no es una muestra aleatoria ni representativa de la tasa de aciertos.",
+    "advertencia": "Un puntaje alto o bajo no confirma por sí solo un diagnóstico. Las etiquetas proceden del dataset; no se hizo una adjudicación clínica nueva.",
+    "copias_adicionales": 2,
+    "casos": [
+      {
+        "file_id": "f005234",
+        "ruta_en_proyecto": "imagenes_demo/test/NORMAL/IM-0003-0001.jpeg",
+        "ruta_original": "test/NORMAL/IM-0003-0001.jpeg",
+        "etiqueta_dataset": "NORMAL",
+        "target": 0,
+        "ancho": 2111,
+        "alto": 1509,
+        "bytes": 329189,
+        "sha256_original": "4dbfae8f7a29a9871b5b6e6febc33b2a4d14cbf9b4a0aef37e3db018f92798c3",
+        "sha256_entrega": "4dbfae8f7a29a9871b5b6e6febc33b2a4d14cbf9b4a0aef37e3db018f92798c3",
+        "bytes_coinciden": true,
+        "prediccion_fase3": "NORMAL",
+        "puntaje_neumonia_fase3": 0.0085443304851651,
+        "tipo_caso_fase3": "TN",
+        "umbral_conservado": 0.8745065331459045,
+        "puntaje_neumonia_cpu_fase4": 0.0085146473720669,
+        "prediccion_cpu_fase4": "NORMAL",
+        "copia_inicio_exposicion": "imagenes_demo/00_inicio_exposicion/01_NORMAL.jpeg",
+        "revision_visual_tecnica": "Imagen legible, con ambos campos pulmonares visibles. No es una revisión clínica ni una nueva adjudicación de la etiqueta."
+      },
+      {
+        "file_id": "f005487",
+        "ruta_en_proyecto": "imagenes_demo/test/PNEUMONIA/person108_bacteria_511.jpeg",
+        "ruta_original": "test/PNEUMONIA/person108_bacteria_511.jpeg",
+        "etiqueta_dataset": "PNEUMONIA",
+        "target": 1,
+        "ancho": 1438,
+        "alto": 1260,
+        "bytes": 147504,
+        "sha256_original": "bc5b4787665f5bee1dfe5085343ebbce2bb44871ad905c48e258d912708ce3e3",
+        "sha256_entrega": "bc5b4787665f5bee1dfe5085343ebbce2bb44871ad905c48e258d912708ce3e3",
+        "bytes_coinciden": true,
+        "prediccion_fase3": "PNEUMONIA",
+        "puntaje_neumonia_fase3": 0.998498797416687,
+        "tipo_caso_fase3": "TP",
+        "umbral_conservado": 0.8745065331459045,
+        "puntaje_neumonia_cpu_fase4": 0.9985389709472656,
+        "prediccion_cpu_fase4": "PNEUMONIA",
+        "copia_inicio_exposicion": "imagenes_demo/00_inicio_exposicion/02_NEUMONIA.jpeg",
+        "revision_visual_tecnica": "Imagen legible, con ambos campos pulmonares visibles. No es una revisión clínica ni una nueva adjudicación de la etiqueta."
+      }
+    ]
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "purpose": "technical_regression_only_not_clinical_evaluation",
+  "n": 16,
+  "selection": "4 nearest historical threshold + 3 per confusion category; fill by file_id",
+  "source": "Chest X-Ray Images (Pneumonia), test oficial ya evaluado",
+  "source_url": "https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia",
+  "phase4_kaggle_parity_passed": false,
+  "score_absolute_tolerance": 0.0001,
+  "tensor_equality": "sha256_exact",
+  "model_sha256": "d12e084de1fcf84c5aa57c5f41e73bf8bc5e07730fd2e3a95c232cbddc799c33",
+  "threshold": 0.8745065331459045,
+  "environment_cpu_kaggle": {
+    "python": "3.13.18",
+    "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+    "torch": "2.11.0+cpu",
+    "torchvision": "0.26.0+cpu",
+    "pillow": "13.0.0",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "cpu_threads": 2
+  },
+  "cases": [
+    {
+      "file_id": "f005285",
+      "path": "imagenes/f005285.jpeg",
+      "original_relative_path": "test/NORMAL/IM-0085-0001.jpeg",
+      "image_sha256": "4cebf7eed9aea1c2f47e6d96cd2696082601b2cd4b086939198a5bb274963602",
+      "tensor_sha256": "88c4679b191fb3fa441359231b400303b379cfb722b39e883883c4ccf713ce7b",
+      "score_cpu_kaggle": 0.8714661598205566,
+      "predicted_cpu_kaggle": 0
+    },
+    {
+      "file_id": "f005364",
+      "path": "imagenes/f005364.jpeg",
+      "original_relative_path": "test/NORMAL/NORMAL2-IM-0222-0001.jpeg",
+      "image_sha256": "5f0cd26461e064a5088b1a4d9a9d036ffc9ac664a66d75a736aa342d33be6ce8",
+      "tensor_sha256": "23efa9c60c5ab9816473d3f209ad48ed1342a9c107bdf9cbb9ddbff41ba9091c",
+      "score_cpu_kaggle": 0.8818390965461731,
+      "predicted_cpu_kaggle": 1
+    },
+    {
+      "file_id": "f005515",
+      "path": "imagenes/f005515.jpeg",
+      "original_relative_path": "test/PNEUMONIA/person117_bacteria_557.jpeg",
+      "image_sha256": "e4c540d4739c0b677f18a245ad0a6455dc589638fd87eb4c74f7c1f0166e659c",
+      "tensor_sha256": "c4e6722ea560c8fc536c4682fdcc6db87764dd722460d4bf7527fecec768af4a",
+      "score_cpu_kaggle": 0.8809564113616943,
+      "predicted_cpu_kaggle": 1
+    },
+    {
+      "file_id": "f005644",
+      "path": "imagenes/f005644.jpeg",
+      "original_relative_path": "test/PNEUMONIA/person1615_virus_2801.jpeg",
+      "image_sha256": "2aa94bf8f03f5d89ca54fedaed591e958a4cec041f22cf385b57bec1ba8ddeb4",
+      "tensor_sha256": "a943f5ce8fed6f9cc19af07bf20c8f005beed7b2fb1bff17a46a215b7f56581b",
+      "score_cpu_kaggle": 0.8829309940338135,
+      "predicted_cpu_kaggle": 1
+    },
+    {
+      "file_id": "f005467",
+      "path": "imagenes/f005467.jpeg",
+      "original_relative_path": "test/PNEUMONIA/person100_bacteria_475.jpeg",
+      "image_sha256": "4ba221b94dc77ef2e3663231b816fcf07d411067e8d09b40e72e707bc157c4cd",
+      "tensor_sha256": "2bf8ddf200bf0c5134f9cec088910da2dac1e2a1728199f3c57f14ac351146db",
+      "score_cpu_kaggle": 0.7828348875045776,
+      "predicted_cpu_kaggle": 0
+    },
+    {
+      "file_id": "f005521",
+      "path": "imagenes/f005521.jpeg",
+      "original_relative_path": "test/PNEUMONIA/person119_bacteria_568.jpeg",
+      "image_sha256": "28784692e79a2b4d8e9c137acb4afc3e8ca5eb1b73b61577481c9c6d8886999a",
+      "tensor_sha256": "5cf9688018c6c04da2610384072dcdd3c3e2e437f198cd2d0e3da503fd71c62f",
+      "score_cpu_kaggle": 0.7160170674324036,
+      "predicted_cpu_kaggle": 0
+    },
+    {
+      "file_id": "f005589",
+      "path": "imagenes/f005589.jpeg",
+      "original_relative_path": "test/PNEUMONIA/person140_bacteria_667.jpeg",
+      "image_sha256": "81e368471a1e0bb23f937876176251cb1cb6d442955b8e189ee78f0872911a5b",
+      "tensor_sha256": "eda04bbb778262db7700574cd09caaf7d1be1054f8916a5139b1c6b7a60f6b0b",
+      "score_cpu_kaggle": 0.335665225982666,
+      "predicted_cpu_kaggle": 0
+    },
+    {
+      "file_id": "f005244",
+      "path": "imagenes/f005244.jpeg",
+      "original_relative_path": "test/NORMAL/IM-0015-0001.jpeg",
+      "image_sha256": "5090dceb61876e6c20b13a3a44fdb040983bbc8d3201242e95ffc765f6bcc93b",
+      "tensor_sha256": "9c68dddca1de4fdcd516583ad211ab5c9475d6f75e473e2ec496d6a4f3300f9c",
+      "score_cpu_kaggle": 0.9644153118133545,
+      "predicted_cpu_kaggle": 1
+    },
+    {
+      "file_id": "f005247",
+      "path": "imagenes/f005247.jpeg",
+      "original_relative_path": "test/NORMAL/IM-0019-0001.jpeg",
+      "image_sha256": "5b54ec4420fd3047aa6641c9f4905aafbfe99924adb7afdf3fb017568e37a38b",
+      "tensor_sha256": "db6393bdb0586b981826b0167a19bf8fa04248d371e8b94b0c17cbf7b83b93be",
+      "score_cpu_kaggle": 0.9759634733200073,
+      "predicted_cpu_kaggle": 1
+    },
+    {
+      "file_id": "f005249",
+      "path": "imagenes/f005249.jpeg",
+      "original_relative_path": "test/NORMAL/IM-0022-0001.jpeg",
+      "image_sha256": "d09519831dd7f24f1db680e1147392d455e8dd485cd3f23fdc4c281e2f00d63f",
+      "tensor_sha256": "1653863e12219ec9335c46b1f2d290a1c5d7bf494d00fe176c4f852d6dea837a",
+      "score_cpu_kaggle": 0.9999656677246094,
+      "predicted_cpu_kaggle": 1
+    },
+    {
+      "file_id": "f005233",
+      "path": "imagenes/f005233.jpeg",
+      "original_relative_path": "test/NORMAL/IM-0001-0001.jpeg",
+      "image_sha256": "f17a003185299f171440c2cb408c2e5bacea90376971ed81ecc9812465e209fb",
+      "tensor_sha256": "df04033b5fbdf7c186ce9eae927798cca1da19d8166ac18d7da7c35eb35825a5",
+      "score_cpu_kaggle": 0.45706117153167725,
+      "predicted_cpu_kaggle": 0
+    },
+    {
+      "file_id": "f005234",
+      "path": "imagenes/f005234.jpeg",
+      "original_relative_path": "test/NORMAL/IM-0003-0001.jpeg",
+      "image_sha256": "4dbfae8f7a29a9871b5b6e6febc33b2a4d14cbf9b4a0aef37e3db018f92798c3",
+      "tensor_sha256": "80c2360b771524a76a2724f0de617ecb64ff13ae1423954da9d74cc5ecfa5a40",
+      "score_cpu_kaggle": 0.008514647372066975,
+      "predicted_cpu_kaggle": 0
+    },
+    {
+      "file_id": "f005235",
+      "path": "imagenes/f005235.jpeg",
+      "original_relative_path": "test/NORMAL/IM-0005-0001.jpeg",
+      "image_sha256": "1d48d33c762a63fc1029606c7ce3364bc106a5dd3a30121b8da0373701e2ce49",
+      "tensor_sha256": "66a265cfe2eb607bbd955b84e2b0a401392c2412ad34df7eb19d7da876f65387",
+      "score_cpu_kaggle": 0.28968915343284607,
+      "predicted_cpu_kaggle": 0
+    },
+    {
+      "file_id": "f005468",
+      "path": "imagenes/f005468.jpeg",
+      "original_relative_path": "test/PNEUMONIA/person100_bacteria_477.jpeg",
+      "image_sha256": "6211aa5bb73c2aa1d598bf2ebe7c14ac6617552c031523c1c73c9528f2d6b2e3",
+      "tensor_sha256": "e5b48fc166ba32984eb6f96810a95420cd90d656ad86c5fae8c0af401ab2e57a",
+      "score_cpu_kaggle": 0.9983288645744324,
+      "predicted_cpu_kaggle": 1
+    },
+    {
+      "file_id": "f005469",
+      "path": "imagenes/f005469.jpeg",
+      "original_relative_path": "test/PNEUMONIA/person100_bacteria_478.jpeg",
+      "image_sha256": "3f1901f20df399964f8d97cc0934d7f7bac0bae59f10cb3de6b6459951b7cd26",
+      "tensor_sha256": "ff73352871f4c2e439fbd1ed0c5cb251767a2b1dd48d977e7d6ac22431f88b44",
+      "score_cpu_kaggle": 0.9999091625213623,
+      "predicted_cpu_kaggle": 1
+    },
+    {
+      "file_id": "f005470",
+      "path": "imagenes/f005470.jpeg",
+      "original_relative_path": "test/PNEUMONIA/person100_bacteria_479.jpeg",
+      "image_sha256": "0267d78a39cae2c3712d164db1e8cf595d9bb7849c571099cc58506f0d83ab9b",
+      "tensor_sha256": "447f937058343584d56f1be618b7227766d562d878eea08166cab44a6a2e3d4c",
+      "score_cpu_kaggle": 0.999996542930603,
+      "predicted_cpu_kaggle": 1
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+"""Compara la instalación local con 16 radiografías exportadas desde Kaggle.
+
+No entrena ni vuelve a elegir umbrales. Ejecutar antes de la demostración local.
+"""
+from pathlib import Path
+import hashlib
+import json
+import platform
+import sys
+
+import numpy as np
+import PIL
+import torch
+import torchvision
+
+from neumonia.inference import InferenceEngine, load_image, preprocess_image
+from neumonia.phase4 import image_path, sha256_file, verify_preservation
+
+
+def main():
+    root = Path(__file__).resolve().parent
+    descriptor = root / "pruebas_portables/casos.json"
+    if not descriptor.is_file():
+        print("PENDIENTE: primero ejecuta el cuaderno 05 en Kaggle y descarga su ZIP de salida.\n"
+              "Ese ZIP incorpora 16 imágenes y resultados para comprobar esta instalación.\n"
+              "El paquete inicial contiene el modelo, pero aún no esas comprobaciones reales.")
+        return 2
+    verify_preservation(root)
+    cases = json.loads(descriptor.read_text(encoding="utf-8"))
+    if cases.get("n") != 16 or len(cases.get("cases", [])) != 16:
+        raise ValueError("El paquete de comprobación debe contener 16 casos.")
+    if cases.get("score_absolute_tolerance") != 0.0001:
+        raise ValueError("La tolerancia de la comprobación fue modificada.")
+    engine = InferenceEngine(root / "modelo", device="cpu")
+    if (cases.get("model_sha256") != engine.model_sha256
+            or cases.get("threshold") != engine.threshold
+            or len({item["file_id"] for item in cases["cases"]}) != 16):
+        raise ValueError("Los casos portables no corresponden al modelo, umbral o identificadores de esta versión.")
+    records = []
+    for case in cases["cases"]:
+        record = {"file_id": case["file_id"], "image_ok": False, "tensor_ok": False,
+                  "score_ok": False, "class_ok": False, "abs_score_difference": None, "error": ""}
+        try:
+            path = image_path(descriptor.parent, case["path"])
+            record["image_ok"] = sha256_file(path) == case["image_sha256"]
+            if not record["image_ok"]:
+                raise ValueError("La imagen no coincide con el archivo original exportado.")
+            image = load_image(path)
+            tensor = preprocess_image(image)
+            record["tensor_ok"] = hashlib.sha256(tensor.numpy().tobytes(order="C")).hexdigest() == case["tensor_sha256"]
+            result = engine.predict_image(image)
+            difference = abs(result["score_pneumonia"] - case["score_cpu_kaggle"])
+            record.update(abs_score_difference=difference, score_ok=difference <= 0.0001,
+                          class_ok=int(result["label"] == "PNEUMONIA") == case["predicted_cpu_kaggle"])
+        except Exception as exc:
+            record["error"] = f"{type(exc).__name__}: {exc}"
+        records.append(record)
+        ok = all(record[x] for x in ("image_ok", "tensor_ok", "score_ok", "class_ok"))
+        print(f"{record['file_id']}: {'OK' if ok else 'REVISAR'}")
+    passed = bool(cases.get("phase4_kaggle_parity_passed") and all(
+        all(row[key] for key in ("image_ok", "tensor_ok", "score_ok", "class_ok")) for row in records))
+    summary = {"status": "VERIFICACION_LOCAL_APROBADA" if passed else "VERIFICACION_LOCAL_INCOMPLETA",
+               "passed": passed, "n_cases": len(records), "scope": "technical_regression_not_clinical_validation",
+               "score_absolute_tolerance": 0.0001,
+               "kaggle_parity_passed": cases.get("phase4_kaggle_parity_passed"),
+               "environment": {"python": platform.python_version(), "torch": torch.__version__,
+                               "torchvision": torchvision.__version__, "pillow": PIL.__version__,
+                               "numpy": np.__version__, "platform": platform.platform()},
+               "cases": records}
+    destination = root / "evidencia/verificacion_local.json"
+    destination.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(summary["status"])
+    print(f"Registro: {destination}")
+    if not passed:
+        print("Conserva este registro y compártelo. No cambies pesos, umbral ni tolerancias para aprobar.")
+    return 0 if passed else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

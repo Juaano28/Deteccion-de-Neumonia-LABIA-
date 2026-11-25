@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fase 4 · Guía de inicio</title>
+<style>
+:root{--ink:#132b43;--teal:#128375;--muted:#53697b;--line:#d8e3eb;--paper:#fff;--bg:#f2f5f8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:960px;margin:32px auto;background:var(--paper);padding:0 48px 40px;border:1px solid var(--line);border-radius:12px}
+header{background:#102b46;color:white;margin:0 -48px 32px;padding:36px 48px;border-radius:12px 12px 0 0}
+header p{color:#d6e3ed;margin:8px 0 0}header small{color:#9edfd3;letter-spacing:.12em;font-weight:700;text-transform:uppercase}
+h1{font-size:32px;line-height:1.2;margin:12px 0}h2{font-size:23px;margin-top:32px;border-bottom:1px solid var(--line);padding-bottom:10px}h3{font-size:18px;margin-top:24px}a{color:#0d7166}p{margin:12px 0}
+.note{padding:16px 20px;border-left:4px solid var(--teal);background:#edf7f5;border-radius:0 6px 6px 0}.warn{border-color:#bc7a27;background:#fff7e9}.step{display:inline-block;background:var(--teal);color:#fff;border-radius:50%;width:27px;height:27px;line-height:27px;text-align:center;font-size:15px;margin-right:8px}
+pre{padding:16px;background:#102b46;color:#e9f5ff;border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.6}code{font-family:ui-monospace,Consolas,monospace}p code,li code,td code{background:#edf1f5;padding:1px 4px;border-radius:3px;font-size:.91em}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#edf3f7}ol,ul{padding-left:24px}li{margin:7px 0}.subtle{color:var(--muted);font-size:14px}.path{overflow-wrap:anywhere}.footer{margin-top:32px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+@media(max-width:700px){main{margin:0;border-radius:0;padding:0 20px 28px}header{margin:0 -20px 24px;padding:28px 20px;border-radius:0}h1{font-size:27px}pre{font-size:12px}table{font-size:12px}}
+@media print{body{background:white;font-size:10pt}main{border:0;margin:0;padding:0;max-width:none}header{margin:0 0 16px;padding:16px;border-radius:0;print-color-adjust:exact}h1{font-size:23pt}h2{font-size:16pt;break-after:avoid}h3{break-after:avoid}pre,.note,table{break-inside:avoid}pre{font-size:8pt;background:#f1f4f7;color:#132b43;border:1px solid #d8e3eb}a{color:inherit;text-decoration:none}.footer{font-size:9pt}}
+</style>
+</head>
+<body><main>
+<header><small>Grupo 2 · (Juan)⁴ · Laboratorio IA</small><h1>Fase 4: del modelo a la aplicación</h1><p>Guía para comprobar la inferencia en Kaggle y abrir el prototipo en tu computador.</p></header>
+<div class="note"><strong>Ya tienes un modelo entrenado.</strong> Esta fase conserva sus pesos y su umbral. Prepara la carga de una imagen, documenta los errores del test y conecta la inferencia con una interfaz local en Streamlit.</div>
+
+<h2>Qué contiene el proyecto</h2>
+<table><thead><tr><th>Archivo o carpeta</th><th>Para qué sirve</th></tr></thead><tbody>
+<tr><td><code>modelo/</code></td><td>Checkpoint <code>global_best.pt</code> y metadatos del experimento real. Conserva ambos archivos juntos.</td></tr>
+<tr><td><code>app.py</code></td><td>Página en Streamlit: cargar imagen, analizarla y explorar la evidencia del experimento.</td></tr>
+<tr><td><code>neumonia/inference.py</code></td><td>Motor común que aplica el preprocesamiento y el modelo.</td></tr>
+<tr><td><code>predict.py</code></td><td>Predicción individual desde una terminal.</td></tr>
+<tr><td><code>verificar_instalacion.py</code></td><td>Comprueba en tu computador la instalación y la coincidencia con los casos portables preparados en Kaggle.</td></tr>
+<tr><td><code>referencia/</code></td><td>Resultados y figuras conservados de la fase 3.</td></tr>
+<tr><td><code>evidencia/</code></td><td>Registro de errores y estado de verificación de esta fase. Los paneles con imágenes originales se generan en Kaggle.</td></tr>
+<tr><td><code>requirements.txt</code></td><td>Dependencias de la aplicación local.</td></tr>
+<tr><td><code>.streamlit/config.toml</code></td><td>Configuración local, tema visual, puerto y límite de carga.</td></tr>
+</tbody></table>
+<p>El archivo <code>05_Fase4_Inferencia_Revision_Kaggle.ipynb</code> se entrega junto al paquete. Contiene las instrucciones y el código para verificar la integración con las radiografías originales.</p>
+
+<h2>Primero: comprobar la fase 4 en Kaggle</h2>
+<h3><span class="step">1</span>Importa el cuaderno 05</h3>
+<p>Abre Kaggle Notebooks e importa <code>05_Fase4_Inferencia_Revision_Kaggle.ipynb</code>. Utiliza un cuaderno nuevo para conservar el entrenamiento anterior tal como quedó.</p>
+<h3><span class="step">2</span>Añade las dos entradas</h3>
+<ol>
+<li>El dataset original <strong>Chest X-Ray Images (Pneumonia)</strong>, de <strong>paultimothymooney</strong>, que utilizaste durante el entrenamiento.</li>
+<li>Los resultados completos de la fase 3: <code>fase3_mobilenetv2_experimento01_resultados.zip</code>, adjuntados como dataset privado o como salidas del cuaderno de entrenamiento.</li>
+</ol>
+<p>Si Kaggle descomprime el ZIP al subirlo, es válido: deben aparecer <code>global_best.pt</code>, <code>metadatos_modelo.json</code> y las carpetas de resultados. El cuaderno busca ambas presentaciones. No necesitas pegar un enlace web del dataset en el código.</p>
+<h3><span class="step">3</span>Ejecuta las celdas en orden</h3>
+<p>El cuaderno no vuelve a entrenar. Compara la predicción de la implementación nueva con la referencia y genera los paneles para revisar errores. Puede tardar varios minutos; consulta sus mensajes de avance y las indicaciones de cada celda. La inferencia local está preparada para CPU.</p>
+<p>Para conservar una ejecución completa, usa <strong>Save Version → Save &amp; Run All</strong>. Comprueba que la versión comienza a ejecutarse y, al terminar, que figura como completada. Las salidas de esa versión son las que debes descargar.</p>
+<h3><span class="step">4</span>Revisa y descarga las salidas</h3>
+<p>Lee el resumen y el estado de paridad. Una comprobación incompleta requiere revisar las diferencias antes de declarar verificada la integración. Un cambio entre CPU y GPU puede producir pequeñas variaciones numéricas; se registran, no se ocultan.</p>
+<p>Descarga el ZIP de resultados de fase 4 y el cuaderno con sus salidas ejecutadas. Esos son los archivos que permiten revisar la coincidencia numérica y los casos señalados. Los valores originales de fase 3 permanecen como referencia.</p>
+<p><strong>Para continuar en Windows, utiliza el paquete de aplicación que genera ese cuaderno.</strong> Incluye 16 imágenes originales de prueba y sus resultados de referencia para comprobar la instalación local. Estos casos portables verifican reproducibilidad; no constituyen un nuevo conjunto de validación.</p>
+<div class="note warn"><strong>Separación de evidencias.</strong> Las pruebas locales de código no sustituyen la comprobación sobre tus radiografías originales. El estado de fase 4 indica si esa comprobación de Kaggle está pendiente, aprobada o incompleta.</div>
+
+<h2>Después: abrir la aplicación en Windows y Visual Studio Code</h2>
+<h3><span class="step">1</span>Prepara Python y extrae el ZIP</h3>
+<p>Utiliza <strong>Python 3.12 de 64 bits</strong>. Puedes descargarlo desde <a href="https://www.python.org/downloads/">python.org</a>. Extrae el paquete completo en una carpeta, por ejemplo <code>C:\Proyectos\Neumonia_Fase4</code>. Abre en Visual Studio Code la carpeta que contiene <code>app.py</code>; no abras los archivos directamente desde el ZIP.</p>
+<p>Conserva las carpetas <code>modelo</code>, <code>neumonia</code>, <code>referencia</code>, <code>evidencia</code> y <code>.streamlit</code> dentro del proyecto.</p>
+<h3><span class="step">2</span>Crea un entorno virtual</h3>
+<p>En Visual Studio Code, abre <strong>Terminal → New Terminal</strong>. Comprueba que estás en la carpeta de <code>app.py</code>. Ejecuta:</p>
+<pre><code>py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip</code></pre>
+<p>Estos comandos utilizan directamente el Python del entorno. No hace falta cambiar la política de ejecución de PowerShell ni activar scripts.</p>
+<h3><span class="step">3</span>Instala las dependencias</h3>
+<p>Instala primero la versión de PyTorch para CPU y después las dependencias del proyecto:</p>
+<pre><code>.\.venv\Scripts\python.exe -m pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cpu
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt</code></pre>
+<p>La primera instalación descarga paquetes y necesita Internet. Una vez instalados, la aplicación carga el modelo que viene en el paquete: no descarga pesos de ImageNet ni consulta una API de IA.</p>
+<h3><span class="step">4</span>Verifica la instalación en tu equipo</h3>
+<pre><code>.\.venv\Scripts\python.exe verificar_instalacion.py</code></pre>
+<p>El script utiliza los casos portables generados en Kaggle para comprobar el preprocesamiento y la inferencia del entorno local. <strong>Revisa que la verificación termine aprobada antes de presentar la integración como comprobada en tu computador.</strong> Si faltan los casos, vuelve al paquete que produjo el cuaderno 05. Si hay diferencias, conserva el informe y revísalo; no modifiques el umbral ni los valores de referencia para forzar una aprobación.</p>
+<h3><span class="step">5</span>Inicia Streamlit</h3>
+<pre><code>.\.venv\Scripts\python.exe -m streamlit run app.py</code></pre>
+<p>Abre <a href="http://127.0.0.1:8501">http://127.0.0.1:8501</a> en tu navegador. La terminal debe seguir abierta. Para detener el servidor, pulsa <strong>Ctrl+C</strong> en esa terminal.</p>
+<div class="note"><strong>Tu computador puede usar CPU.</strong> Esta etapa carga pesos ya entrenados y procesa una imagen a la vez. La aplicación no exige una GPU NVIDIA. El tiempo depende del equipo; la propia interfaz registra el tiempo de inferencia.</div>
+<h3><span class="step">6</span>Realiza una prueba de uso</h3>
+<ol>
+<li>Carga una radiografía pública en formato <strong>JPEG o PNG</strong>, de hasta 20 MiB.</li>
+<li>Revisa la imagen y, si quieres, despliega la entrada de 224 × 224 píxeles.</li>
+<li>Pulsa <strong>Analizar imagen</strong>.</li>
+<li>Lee la <strong>clase predicha</strong> y el <strong>puntaje sin calibrar</strong>. Puedes descargar el resultado en JSON.</li>
+<li>Cambia la imagen: el resultado anterior se retira y debes volver a pulsar el botón.</li>
+</ol>
+
+<h2>Cómo interpretar la pantalla</h2>
+<table><thead><tr><th>Elemento</th><th>Interpretación correcta</th></tr></thead><tbody>
+<tr><td>Clase predicha</td><td>Salida binaria: NORMAL o PNEUMONIA. «Normal» no descarta otras alteraciones ni constituye una conclusión clínica.</td></tr>
+<tr><td>Puntaje sin calibrar</td><td>Número entre 0 y 1 que favorece la clase PNEUMONIA cuando aumenta. No es un porcentaje de certeza o de acierto individual.</td></tr>
+<tr><td>Umbral</td><td>Se conserva <strong>0,8745065331459045</strong>. Un puntaje igual o superior produce PNEUMONIA.</td></tr>
+<tr><td>Resultados del experimento</td><td>Métricas históricas de fase 3 sobre 624 imágenes: 94,10 % de sensibilidad y 85,90 % de especificidad. No cambian al subir una imagen.</td></tr>
+<tr><td>Estado de paridad</td><td>Estado de la comprobación técnica de la implementación de inferencia. No certifica utilidad clínica.</td></tr>
+</tbody></table>
+<p>La interfaz valida que el archivo pueda leerse, pero <strong>no determina automáticamente si es una radiografía</strong>. No subas fotos personales ni documentos médicos identificables.</p>
+
+<h2>Si aparece un problema</h2>
+<table><thead><tr><th>Situación</th><th>Qué revisar</th></tr></thead><tbody>
+<tr><td>«py» no se reconoce</td><td>Instala Python 3.12 con el lanzador de Python para Windows y vuelve a abrir la terminal. Verifica <code>py -3.12 --version</code>.</td></tr>
+<tr><td>No encuentra <code>app.py</code></td><td>Abre la carpeta del proyecto y ejecuta los comandos desde ella.</td></tr>
+<tr><td>«No module named…»</td><td>Instala las dependencias utilizando <code>.\.venv\Scripts\python.exe</code> y ejecuta Streamlit con ese mismo intérprete.</td></tr>
+<tr><td>No encuentra el modelo o falla su huella</td><td>Extrae de nuevo el paquete completo. No renombres ni reemplaces pesos o metadatos para forzar la carga.</td></tr>
+<tr><td>El puerto 8501 está ocupado</td><td>Detén la instancia anterior o añade <code>--server.port 8502</code> al comando y abre <code>http://127.0.0.1:8502</code>.</td></tr>
+<tr><td>El navegador no abre automáticamente</td><td>Copia manualmente <code>http://127.0.0.1:8501</code> en la barra de direcciones.</td></tr>
+<tr><td>No admite una imagen</td><td>Comprueba que sea un JPEG o PNG legible, de una sola imagen y dentro de los límites indicados. DICOM y PDF están fuera de esta versión.</td></tr>
+</tbody></table>
+<div class="footer">Proyecto académico · Grupo 2 (Juan)⁴.<br>Documentación técnica: <a href="https://docs.streamlit.io/get-started/installation/command-line">instalación de Streamlit</a> y <a href="https://pytorch.org/get-started/previous-versions/">versiones de PyTorch</a>.<br>La guía conserva los límites declarados del experimento; no atribuye al sistema una validación clínica.</div>
+</main></body></html>

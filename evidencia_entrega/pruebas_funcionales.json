@@ -1,0 +1,59 @@
+{
+  "revision_utc": "2026-11-22T22:19:20.500161+00:00",
+  "alcance": "Prueba funcional de la aplicación de entrega mediante Streamlit AppTest en Linux/CPU. No es una ejecución en Windows ni una evaluación diagnóstica nueva.",
+  "entorno": {
+    "python": "3.12.14",
+    "sistema": "Linux",
+    "torch": "2.6.0+cpu",
+    "streamlit": "1.67.0"
+  },
+  "comprobaciones": {
+    "css_sin_cambios": true,
+    "funciones_aplicacion_sin_cambios": true,
+    "conservado:neumonia/inference.py": true,
+    "conservado:neumonia/phase4.py": true,
+    "conservado:modelo/global_best.pt": true,
+    "conservado:modelo/metadatos_modelo.json": true,
+    "conservado:predict.py": true,
+    "conservado:verificar_instalacion.py": true,
+    "conservado:requirements.txt": true,
+    "conservado:.streamlit/config.toml": true,
+    "tres_pestanas": true,
+    "cobertura_624": true,
+    "metricas_originales": true,
+    "boton_sin_imagen_deshabilitado": true,
+    "matriz_original": true,
+    "comparacion_cifras_originales": true,
+    "errores_56": true,
+    "detalle_epoca_15": true,
+    "sin_bloques_copiables_inexplicados": true,
+    "dos_inferencias_y_reset_correctos": true,
+    "retirar_imagen_limpia_prediccion": true
+  },
+  "ejemplos": [
+    {
+      "archivo": "01_NORMAL.jpeg",
+      "etiqueta_dataset": "NORMAL",
+      "clase_obtenida": "NORMAL",
+      "puntaje_obtenido": 0.008514676243066788,
+      "puntaje_cpu_referencia": 0.008514647372066975,
+      "diferencia_absoluta": 2.8870999813079834e-08,
+      "tolerancia_cpu": 0.0001,
+      "sha256": "4dbfae8f7a29a9871b5b6e6febc33b2a4d14cbf9b4a0aef37e3db018f92798c3",
+      "tiempo_inferencia_ms_entorno_revision": 63.69365800037485
+    },
+    {
+      "archivo": "02_NEUMONIA.jpeg",
+      "etiqueta_dataset": "PNEUMONIA",
+      "clase_obtenida": "PNEUMONIA",
+      "puntaje_obtenido": 0.9985389709472656,
+      "puntaje_cpu_referencia": 0.9985389709472656,
+      "diferencia_absoluta": 0.0,
+      "tolerancia_cpu": 0.0001,
+      "sha256": "bc5b4787665f5bee1dfe5085343ebbce2bb44871ad905c48e258d912708ce3e3",
+      "tiempo_inferencia_ms_entorno_revision": 20.229855000252428
+    }
+  ],
+  "resultado": "PRUEBAS_FUNCIONALES_APROBADAS",
+  "limites": "La prueba conserva las comparaciones históricas y no redefine sus criterios de aprobación. Los lanzadores BAT fueron revisados estáticamente; no ejecutados en Windows. El estilo CSS se mantiene idéntico; esta prueba no sustituye la inspección visual en un navegador."
+}

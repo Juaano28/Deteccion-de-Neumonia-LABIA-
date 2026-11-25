@@ -1,0 +1,34 @@
+GUÍA BREVE PARA EXPONER EL PROTOTIPO
+Grupo 2 · (Juan)⁴
+
+ANTES DE COMENZAR
+Abre INICIAR_PAGINA.bat y entra a http://localhost:8501. Mantén la terminal abierta. Ten ubicada la carpeta imagenes_demo/00_inicio_exposicion. Los ejemplos son imágenes reales del test, seleccionadas para mostrar dos aciertos ilustrativos; no son una evaluación nueva ni una confirmación clínica.
+
+1. PRESENTAR EL PROPÓSITO
+“Desarrollamos un prototipo académico que clasifica radiografías del conjunto de práctica como NORMAL o PNEUMONIA. Integra una red convolucional con una interfaz local para observar cómo se prepara la imagen y cómo se interpreta la salida. No sustituye un diagnóstico médico.”
+
+2. MOSTRAR EL PRIMER EJEMPLO
+Carga 01_NORMAL.jpeg y pulsa Analizar imagen.
+“El sistema prepara la radiografía a 224 × 224 píxeles y utiliza un modelo ya entrenado. La etiqueta de este ejemplo en el dataset es NORMAL. Observamos la clase predicha, el puntaje de neumonía y el umbral que determina la decisión.”
+Si resulta útil, despliega la vista de entrada a la red. Explica que se conserva la proporción y se añade relleno negro.
+
+3. MOSTRAR EL SEGUNDO EJEMPLO
+Carga 02_NEUMONIA.jpeg y vuelve a pulsar Analizar imagen.
+“La etiqueta de este segundo ejemplo en el dataset es PNEUMONIA. La aplicación presenta la salida del mismo modelo, con el mismo preprocesamiento y el mismo umbral. El puntaje favorece una clase; no es un porcentaje de certeza de que esté acertando.”
+Consulta FICHA_EJEMPLOS.txt para identificar la procedencia de ambas imágenes.
+
+4. PRESENTAR LOS RESULTADOS COMPLETOS
+Abre Resultados del experimento.
+“Estos dos ejemplos permiten mostrar el funcionamiento. La evaluación reportada se hizo sobre 624 imágenes: 568 aciertos y 56 errores. La exactitud fue del 91,03 %, la sensibilidad del 94,10 % y la especificidad del 85,90 %. Encontramos 23 falsos negativos y 33 falsos positivos, que debemos reconocer como limitaciones.”
+Señala la matriz. Explica: falso negativo = etiqueta PNEUMONIA, predicción NORMAL; falso positivo = etiqueta NORMAL, predicción PNEUMONIA. Procesar 624/624 imágenes no equivale a acertarlas todas.
+
+5. EXPLICAR LA ARQUITECTURA Y CERRAR
+Abre Acerca del modelo.
+“Usamos MobileNetV2 con aprendizaje por transferencia desde ImageNet, una cabeza binaria y un umbral seleccionado en validación. El modelo elegido corresponde a la época global 15. El proyecto integra preparación de datos, entrenamiento, evaluación e inferencia en una aplicación funcional para CPU.”
+“Su rendimiento corresponde a este conjunto de práctica. Para estudiar su generalización se necesitan datos externos y revisión experta; la independencia clínica por paciente aún no está verificada.”
+
+SI PREGUNTAN POR LA COMPROBACIÓN ENTRE ENTORNOS
+“La comprobación CPU local frente a CPU de Kaggle aprobó 16 casos. En la comparación histórica GPU/CPU coincidieron las 624 clases, pero cinco puntajes superaron su tolerancia numérica. Conservamos ambas evidencias y sus alcances por separado. El modelo, el preprocesamiento y el umbral no cambiaron.”
+
+PARA TERMINAR
+Vuelve a la terminal y pulsa Ctrl+C. Los resultados de referencia permanecen guardados. La aplicación no guarda automáticamente la radiografía cargada; el resultado JSON se descarga solo al solicitarlo.
